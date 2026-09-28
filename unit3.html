@@ -1,0 +1,4090 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الوحدة الثالثة: العلم والخيال والمستقبل 🎯 مع الأستاذة آلاء عبيد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4c1d95;      
+            --primary-light: #a855f7; 
+            --secondary: #c026d3;    
+            --success: #16a34a;      
+            --danger: #ef4444;       
+            --warning: #f59e0b;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f6f1fc;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #2e1065, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #ede9fe;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.5vw, 2.7rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #f0abfc, #e879f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.1;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #f5f3ff; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(99, 102, 241, 0.2); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #4c1d95; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #a855f7; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #4c1d95;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #c026d3;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #2e1065, #4c1d95);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #a855f7; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #4c1d95;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23e0fbfc" width="100%" height="100%"/><circle fill="%23bae6fd" cx="20%" cy="30%" r="50"/><circle fill="%23bae6fd" cx="80%" cy="60%" r="70"/><circle fill="%23bae6fd" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #a855f7; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #faf5ff; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+    
+        .brand-logo { width: 220px; height: 220px; border-radius: 30px; border: 4px solid var(--warning); box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; flex-shrink: 0; }
+        @media (max-width: 600px) { .brand-logo { width: 150px; height: 150px; } }
+        .home-link { position: absolute; top: 15px; right: 15px; z-index: 5; background: rgba(255,255,255,0.18); color: #fff; border: 1px solid rgba(255,255,255,0.35); border-bottom: 3px solid rgba(0,0,0,0.25); padding: 8px 16px; font-size: 1rem; text-decoration: none; }
+        .kind-badge { display: inline-block; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #fff; font-size: 0.85rem; font-weight: 800; padding: 3px 14px; border-radius: 20px; margin-bottom: 10px; }
+        .menu-card .count { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; background: #f5f3ff; color: var(--primary); font-weight: 800; font-size: 0.9rem; padding: 4px 14px; border-radius: 20px; }
+        .menu-card .num { position: absolute; top: 14px; left: 14px; width: 34px; height: 34px; border-radius: 50%; background: #ede9fe; color: var(--primary); font-weight: 900; display: flex; align-items: center; justify-content: center; }
+        .q-type-tag { align-self: center; background: #ede9fe; color: var(--primary); font-weight: 800; font-size: 0.95rem; padding: 4px 16px; border-radius: 20px; margin-bottom: 12px; }
+        #game-title { text-align: center; padding: 0 10px; }
+        .target-bird { white-space: normal; max-width: 70%; }
+    </style>
+</head>
+<body>
+    <header class="header-main" id="main-header">
+        <a class="btn home-link" href="index.html">🏠 الصفحة الرئيسية</a>
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.png" onerror="var e=['logo.jpg','logo.jpeg','logo.webp','logo.gif'],i=+(this.dataset.i||0);if(i<e.length){this.dataset.i=i+1;this.src=e[i];}else{this.onerror=null;}" alt="الأستاذة آلاء عبيد" class="brand-logo">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">درس <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> لعبة</h1>
+                    <h1 class="title-line2">مع الأستاذة آلاء عبيد</h1>
+                    <h2>الصف السادس الابتدائي - الفصل الدراسي الأول</h2>
+                    <p style="margin-top: 10px;">الوحدة الثالثة: العلم والخيال والمستقبل</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f6f1fc" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </header>
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب الأستاذة آلاء عبيد</p>
+        <p class="designer">الأستاذة / آلاء عبيد</p>
+    </footer>
+<script>
+    const allGamesData = [
+ {
+  "id": "u3l1",
+  "kind": "الاستماع",
+  "title": "من الخيال إلى الواقع",
+  "desc": "الدرس الأول (الاستماع)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M3 18v-6a9 9 0 0 1 18 0v6\"/><path d=\"M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "أين تكمن الإجابة عن سؤال: كيف تتحول الأفكار من خيال إلى اختراعات؟",
+    "options": [
+     "في العقول المبدعة التي تأخذ الأفكار المستحيلة وتحولها إلى واقع",
+     "في الحظ",
+     "في المال وحده",
+     "في الصدفة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما المثال الذي ذكره النص على تحوّل الخيال إلى واقع؟",
+    "options": [
+     "الأخوان رايت ومخترعا الطائرة",
+     "مخترع الهاتف",
+     "مخترع المصباح",
+     "مخترع السيارة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بمَ كان الأخوان رايت يتخيّلان دائمًا؟",
+    "options": [
+     "كيفية الطيران في السماء",
+     "الغوص في البحار",
+     "السفر إلى القمر",
+     "بناء الأهرامات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الذي ساعد الأخوين رايت في تحقيق حلم الطيران:",
+    "options": [
+     "القيام بالتجارب العلمية",
+     "الاعتماد على الخيال وحده",
+     "تقليد الطيور فقط",
+     "الحظ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما نوع النص الذي استمعت إليه؟",
+    "options": [
+     "تفسيري",
+     "قصصي",
+     "حواري",
+     "شعري"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الفكرة الرئيسة للنص المسموع؟",
+    "options": [
+     "كل اختراع يتطلب العلم والخيال معًا لتحقيقه",
+     "الخيال مضيعة للوقت",
+     "العلم لا يحتاج إلى الخيال",
+     "الاختراعات تأتي صدفة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الخيال ليس مجرد أحلام بل هو:",
+    "options": [
+     "وقود الإبداع",
+     "مضيعة وقت",
+     "كسل",
+     "خوف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "فكرة الطيران كانت تبدو في وقتها:",
+    "options": [
+     "مستحيلة",
+     "سهلة",
+     "قديمة",
+     "مملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مخترعات اليوم كانت في الماضي:",
+    "options": [
+     "أفكارًا خيالية",
+     "حقائق",
+     "ألعابًا",
+     "كتبًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "يحرّك عجلة الإبداع:",
+    "options": [
+     "الخيال",
+     "النوم",
+     "الخوف",
+     "التردد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "في كل عصر يظهر علماء ومخترعون:",
+    "options": [
+     "غيّروا وجه الحياة",
+     "لم يفعلوا شيئًا",
+     "أضاعوا الوقت",
+     "هدموا الحياة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "المخترعات قد تكون مجرد بداية لما هو:",
+    "options": [
+     "آتٍ",
+     "ماضٍ",
+     "منتهٍ",
+     "مستحيل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "كانت الأفكار في البداية:",
+    "options": [
+     "بسيطة",
+     "معقدة",
+     "مكتوبة",
+     "مشهورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "العقول التي تتخيل هي التي:",
+    "options": [
+     "تبتكر",
+     "تنام",
+     "تتوقف",
+     "تتراجع"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الفكر الخيالية لا تساعد في التقدم العلمي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كانت فكرة الطيران مستحيلة ولم تتحقق أبدًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "المخترعات التي نراها اليوم بدأت كأفكار خيالية في الماضي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "العلم وحده يكفي لاختراع أشياء جديدة دون الحاجة إلى الخيال.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "ما نراه اليوم كان في يوم من الأيام مجرد خيال.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "بدأ حلم الطيران يتحقق من خلال دراسات وتجارب علمية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u3l2",
+  "kind": "القراءة",
+  "title": "مَن وراء الكاميرا؟",
+  "desc": "الدرس الثاني (القراءة)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "من العالم العربي الذي كان وراء فكرة الكاميرا؟",
+    "options": [
+     "الحسن بن الهيثم",
+     "الزهراوي",
+     "ابن سينا",
+     "الخوارزمي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "فكرة الكاميرا قديمة، تعود إلى أكثر من:",
+    "options": [
+     "ألف عام",
+     "مائة عام",
+     "مائتي عام",
+     "ألفي عام"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أين وُلد الحسن بن الهيثم؟",
+    "options": [
+     "في البصرة",
+     "في القاهرة",
+     "في بغداد",
+     "في الأندلس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا لاحظ ابن الهيثم في إحدى تجاربه؟",
+    "options": [
+     "أن الضوء الداخل من فتحة صغيرة في غرفة مظلمة يعرض صورة مقلوبة لما خارجها",
+     "أن الضوء لا يدخل الغرف",
+     "أن الصوت أسرع من الضوء",
+     "أن الألوان تختفي في الظلام"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما اسم الكتاب الذي ألّفه ابن الهيثم؟",
+    "options": [
+     "كتاب المناظر",
+     "التصريف",
+     "القانون في الطب",
+     "الحيوان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الكاميرا الحديثة تعتمد على فكرة:",
+    "options": [
+     "العدسات",
+     "حركة الرياح",
+     "الصوت",
+     "الكهرباء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كم ظل كتاب المناظر يُدرَّس في أوروبا؟",
+    "options": [
+     "لعدة قرون",
+     "لعدة أيام",
+     "لعام واحد",
+     "لم يُدرّس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "اهتم ابن الهيثم بدراسة:",
+    "options": [
+     "الضوء",
+     "الصوت",
+     "الفضاء",
+     "الحرارة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «الجليل»:",
+    "options": [
+     "العظيم",
+     "القديم",
+     "الحديث",
+     "الشهير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «ازدهرت»:",
+    "options": [
+     "تطورت وتقدمت",
+     "تأخرت",
+     "صعبت",
+     "تنوعت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مضاد «ازدهرت»:",
+    "options": [
+     "تأخرت",
+     "تقدمت",
+     "تطورت",
+     "حسنت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «خصائص»:",
+    "options": [
+     "صفات مميزة",
+     "أسعار",
+     "أوزان",
+     "أشكال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «قرون»:",
+    "options": [
+     "مئات السنين",
+     "شهور",
+     "أسابيع",
+     "أيام"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «بصمة»:",
+    "options": [
+     "أثر",
+     "صورة",
+     "كتاب",
+     "اسم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«حب الاستطلاع» معناه:",
+    "options": [
+     "الرغبة في المعرفة",
+     "الخوف",
+     "الكسل",
+     "اللعب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "انتقل ابن الهيثم إلى مصر في عصر ازدهرت فيه العلوم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الكاميرا الأولى هي الموجودة في الهاتف الآن.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الفخر وحده يكفي، ولا حاجة للاقتداء بابن الهيثم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "فتح ابن الهيثم الباب أمام تطور التقنيات البصرية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "مفرد «قرون»: قرن، وهو مائة سنة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u3l3",
+  "kind": "القواعد النحوية",
+  "title": "كان وأخواتها",
+  "desc": "قواعد نحوية - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" y1=\"20\" x2=\"15\" y2=\"20\"/><line x1=\"12\" y1=\"4\" x2=\"12\" y2=\"20\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "كان وأخواتها أفعال ناسخة تدخل على الجملة الاسمية:",
+    "options": [
+     "فترفع المبتدأ ويسمى اسمها، وتنصب الخبر ويسمى خبرها",
+     "فتنصب المبتدأ وترفع الخبر",
+     "فتجر المبتدأ والخبر",
+     "فترفع المبتدأ والخبر معًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "من أخوات كان:",
+    "options": [
+     "أصبح - أضحى - أمسى - بات - ظلّ - صار - ليس",
+     "إنّ - أنّ - لكنّ - ليت",
+     "ظنّ - حسب - خال",
+     "كاد - أوشك - عسى"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الفعل الذي يأتي منه الماضي فقط من أخوات كان:",
+    "options": [
+     "ليس",
+     "كان",
+     "أصبح",
+     "صار"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في «باتَ الحارسُ يقظًا» اسم الفعل الناسخ:",
+    "options": [
+     "الحارس",
+     "يقظًا",
+     "بات",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في «صار الجنودُ مستعدّين» خبر الفعل الناسخ:",
+    "options": [
+     "مستعدّين",
+     "الجنود",
+     "صار",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "المبتدأ والخبر في الجملة الاسمية قبل دخول الناسخ يكونان:",
+    "options": [
+     "مرفوعين دائمًا",
+     "منصوبين",
+     "مجرورين",
+     "مجزومين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أدخل (كان): الجوّ باردٌ",
+    "options": [
+     "كان الجوّ باردًا",
+     "كان الجوّ باردٌ",
+     "كان الجوَّ باردٌ",
+     "كان الجوِّ باردٍ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أدخل (ليس): أخوك ذو خبرة",
+    "options": [
+     "ليس أخوك ذا خبرة",
+     "ليس أخاك ذو خبرة",
+     "ليس أخيك ذي خبرة",
+     "ليس أخوك ذو خبرة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الفعل الناسخ في «يمسي الطفلان نائمَين»:",
+    "options": [
+     "يمسي",
+     "الطفلان",
+     "نائمين",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "خبر «ظلّت الشوارع مزدحمةً»:",
+    "options": [
+     "مزدحمة",
+     "الشوارع",
+     "ظلّت",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدخل (أصبح): التلميذتان نشيطتان",
+    "options": [
+     "أصبحت التلميذتان نشيطتين",
+     "أصبحت التلميذتين نشيطتان",
+     "أصبحت التلميذتان نشيطتان",
+     "أصبح التلميذتين نشيطتين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدخل (بات): العاملون متعبون",
+    "options": [
+     "بات العاملون متعبين",
+     "بات العاملين متعبون",
+     "بات العاملون متعبون",
+     "بات العاملين متعبين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "اسم الناسخ في «تظلّ العاملات متعاونات»:",
+    "options": [
+     "العاملات",
+     "متعاونات",
+     "تظلّ",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "فعل أمر من أخوات كان:",
+    "options": [
+     "كُن",
+     "ليس",
+     "كان",
+     "صار"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أخوات كان تأتي في صيغة الماضي والمضارع والأمر ما عدا (ليس).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «كان الطريقُ مظلمًا» كلمة (الطريق) خبر كان.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "خبر كان يكون منصوبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "(إنّ) من أخوات كان.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كان وأخواتها تغيّر إعراب الخبر وتجعله منصوبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «أضحى الجوُّ جميلٌ».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l4",
+  "kind": "القواعد النحوية",
+  "title": "أنواع خبر كان وأخواتها",
+  "desc": "قواعد نحوية - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" y1=\"20\" x2=\"15\" y2=\"20\"/><line x1=\"12\" y1=\"4\" x2=\"12\" y2=\"20\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "أنواع خبر (كان وأخواتها):",
+    "options": [
+     "مفرد - جملة - شبه جملة",
+     "مرفوع - منصوب - مجرور",
+     "اسم - فعل - حرف",
+     "ظاهر - مستتر - متصل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "خبر كان الجملة يشتمل على:",
+    "options": [
+     "رابط يعود على اسم كان وأخواتها",
+     "حرف جر فقط",
+     "ظرف زمان",
+     "اسم إشارة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "خبر كان الجملة وشبه الجملة يكون في محل:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر",
+     "جزم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "نوع الخبر في «كان القمرُ ساطعًا»:",
+    "options": [
+     "مفرد",
+     "جملة اسمية",
+     "جملة فعلية",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "نوع الخبر في «صارت الشجرةُ ثمارُها ناضجةٌ»:",
+    "options": [
+     "جملة اسمية",
+     "مفرد",
+     "جملة فعلية",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "نوع الخبر في «أصبح المطرُ يسقط بغزارة»:",
+    "options": [
+     "جملة فعلية",
+     "جملة اسمية",
+     "مفرد",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «ليس السفرُ صباحًا»",
+    "options": [
+     "شبه جملة ظرف",
+     "مفرد",
+     "جملة فعلية",
+     "جملة اسمية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «ظلّ التلميذُ في المكتبة»",
+    "options": [
+     "جار ومجرور",
+     "ظرف",
+     "مفرد",
+     "جملة اسمية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «أمست السماءُ صافيةً»",
+    "options": [
+     "مفرد",
+     "جملة فعلية",
+     "شبه جملة",
+     "جملة اسمية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «بات الطائرُ فوق الشجرة»",
+    "options": [
+     "شبه جملة ظرف",
+     "مفرد",
+     "جملة فعلية",
+     "جار ومجرور"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الرابط في «صارت الشجرة ثمارُها ناضجة»:",
+    "options": [
+     "الضمير (ها)",
+     "الشجرة",
+     "ناضجة",
+     "صارت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الرابط في «أصبح المطر يسقط»:",
+    "options": [
+     "ضمير مستتر (هو)",
+     "المطر",
+     "بغزارة",
+     "أصبح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع الخبر: «أمست الأسرة تجهّز حقائب السفر»",
+    "options": [
+     "جملة فعلية",
+     "جملة اسمية",
+     "مفرد",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع الخبر: «باتت الممرضة جوار المريض»",
+    "options": [
+     "شبه جملة ظرف",
+     "جار ومجرور",
+     "مفرد",
+     "جملة فعلية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «ليست الرياضة مضيّعةً للوقت» الخبر مفرد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «صار المصنعان إنتاجهما وفير» الخبر جملة فعلية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "اسم كان وأخواتها قد يكون اسمًا ظاهرًا أو ضميرًا متصلًا أو مستترًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «كنتُ في المتحف» اسم كان هو التاء (ضمير متصل).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «ظلّت التلميذاتُ منتبهاتٍ» (منتبهات) خبر منصوب وعلامة نصبه الكسرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "عند حذف الناسخ من «كان القمر منيرًا» تصبح: «القمرُ منيرًا».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l5",
+  "kind": "القواعد الإملائية",
+  "title": "الهمزة المتوسطة على واو",
+  "desc": "قواعد إملائية - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "من حالات كتابة الهمزة المتوسطة على الواو:",
+    "options": [
+     "الهمزة مضمومة وقبلها مفتوح أو ساكن",
+     "الهمزة مكسورة",
+     "الهمزة ساكنة وقبلها مكسور",
+     "الهمزة مفتوحة وقبلها مفتوح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الهمزة في (يَؤُم):",
+    "options": [
+     "مضمومة وقبلها حرف مفتوح",
+     "ساكنة وقبلها مضموم",
+     "مفتوحة وقبلها مضموم",
+     "مكسورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الهمزة في (تفاؤُل):",
+    "options": [
+     "مضمومة وقبلها حرف ساكن",
+     "مفتوحة وقبلها مضموم",
+     "ساكنة وقبلها مضموم",
+     "مكسورة وقبلها ساكن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الهمزة في (سُؤَال):",
+    "options": [
+     "مفتوحة وقبلها حرف مضموم",
+     "مضمومة وقبلها مفتوح",
+     "ساكنة وقبلها مضموم",
+     "مكسورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الهمزة في (مُؤْتمر):",
+    "options": [
+     "ساكنة وقبلها حرف مضموم",
+     "مفتوحة وقبلها مضموم",
+     "مضمومة وقبلها ساكن",
+     "مكسورة وقبلها مضموم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ترتيب الحركات من حيث القوة:",
+    "options": [
+     "الكسرة ثم الضمة ثم الفتحة ثم السكون",
+     "الضمة ثم الكسرة ثم الفتحة",
+     "الفتحة ثم الضمة ثم الكسرة",
+     "السكون ثم الكسرة ثم الضمة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أنت شخص ...",
+    "options": [
+     "مؤتمن",
+     "مأتمن",
+     "مئتمن",
+     "موتمن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "صوت ... عذب",
+    "options": [
+     "المؤذن",
+     "المأذن",
+     "المئذن",
+     "الموذن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "حضر العلماء ...",
+    "options": [
+     "المؤتمر",
+     "المأتمر",
+     "المئتمر",
+     "الموتمر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ما أجمل ...!",
+    "options": [
+     "التفاؤل",
+     "التفائل",
+     "التفاأل",
+     "التفاول"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدمج: بُ ءْ رَ ة",
+    "options": [
+     "بؤرة",
+     "بأرة",
+     "بئرة",
+     "بورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدمج: سُ ءَ ا ل",
+    "options": [
+     "سؤال",
+     "سأال",
+     "سئال",
+     "سوال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدمج: تَ شَ ا ءُ م",
+    "options": [
+     "تشاؤم",
+     "تشاأم",
+     "تشائم",
+     "تشاوم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "كلمة همزتها على واو:",
+    "options": [
+     "رؤوف",
+     "سأل",
+     "بئر",
+     "رأس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "شارك الصحفي في مؤتمر عن تأثير التكنولوجيا الحديثة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "تُكتب (مؤمن) بالهمزة على الألف (مأمن).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الهمزة في (يؤم) مضمومة وقبلها مفتوح فكتبت على الواو.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الضمة أقوى من الكسرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الهمزة في (مؤتمر) ساكنة وقبلها مضموم فكتبت على الواو.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «شارك الصحفي في مؤتمر عن تئثير التكنولوجيا».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l6",
+  "kind": "التحدث",
+  "title": "التكنولوجيا في حياتي",
+  "desc": "التحدث - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما معنى «التكنولوجيا سلاح ذو حدّين»؟",
+    "options": [
+     "لها فوائد وأضرار حسب طريقة استخدامها",
+     "مفيدة دائمًا",
+     "ضارة دائمًا",
+     "لا تأثير لها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "من فوائد التكنولوجيا حسب العبارة:",
+    "options": [
+     "توفر الحياة المريحة ووسائل إنجاز الأعمال",
+     "تُبعدنا عن الواقع",
+     "تضيّع الوقت",
+     "تمنع التواصل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "من أضرار التكنولوجيا حسب العبارة:",
+    "options": [
+     "قد تُبعدنا عن الواقع",
+     "توفر الراحة",
+     "تُسرّع إنجاز الأعمال",
+     "تنظم الوقت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "موضوع الحوار مع الزميل:",
+    "options": [
+     "فوائد وعيوب وسائل التواصل الاجتماعي",
+     "رحلة مدرسية",
+     "مباراة كرة القدم",
+     "الطعام الصحي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "من الأساليب اللغوية المتنوعة للتعبير عن الآراء:",
+    "options": [
+     "المقارنة، والسبب والنتيجة",
+     "الصراخ",
+     "التكرار الممل",
+     "السكوت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أتحدث بوضوح ولغة:",
+    "options": [
+     "سليمة",
+     "عامية",
+     "سريعة",
+     "غامضة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أراعي أثناء الحوار حُسن:",
+    "options": [
+     "الاستماع",
+     "المقاطعة",
+     "الصراخ",
+     "التجاهل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أختم الحديث بخاتمة:",
+    "options": [
+     "مؤثرة",
+     "مملة",
+     "طويلة",
+     "ناقصة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أستخدم تعبيرات الوجه:",
+    "options": [
+     "المعبّرة",
+     "الغاضبة",
+     "الجامدة",
+     "المبالغة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "من الحروف الرأسية في خط النسخ:",
+    "options": [
+     "الكاف",
+     "الواو",
+     "الهاء",
+     "العين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "ترك الحسن بن الهيثم ... في تاريخ العلوم",
+    "options": [
+     "بصمة",
+     "خطأ",
+     "فراغًا",
+     "مشكلة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "التكنولوجيا غيّرت جدولك:",
+    "options": [
+     "اليومي",
+     "القديم",
+     "المدرسي فقط",
+     "لا شيء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أرتّب الفكر ترتيبًا:",
+    "options": [
+     "منطقيًّا",
+     "عشوائيًّا",
+     "مقلوبًا",
+     "غامضًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "التكنولوجيا لها تأثيرات إيجابية وسلبية في حياتنا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أقاطع زميلي أثناء الحوار لأعبّر عن رأيي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أمهّد للحديث بمقدمة جذابة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ضبط الكلمات ضبطًا صحيحًا من إرشادات التحدث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "وسائل التواصل الاجتماعي فوائدها فقط ولا عيوب لها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أكتب «ترك الحسن بن الهيثم بصمة في تاريخ العلوم» بخطي النسخ والرقعة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "لا يهم ترتيب الفكر عند التحدث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l7",
+  "kind": "الكتابة",
+  "title": "تطبيقات على كتابة نص معلوماتي",
+  "desc": "الكتابة - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "موضوع التطبيق الكتابي في هذا الدرس:",
+    "options": [
+     "نص معلوماتي عن عالم عربي مشهور",
+     "تقرير عن معسكر",
+     "قصة عن رحلة",
+     "رسالة إلى صديق"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما معنى «لا تقتصر عبقرية العلماء على زمانهم، بل تبقى آثارهم خالدة للأجيال القادمة»؟",
+    "options": [
+     "أثر العلماء يستمر بعد وفاتهم وينفع الأجيال",
+     "العلماء ينفعون زمانهم فقط",
+     "آثار العلماء تختفي بسرعة",
+     "لا فائدة من العلماء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الخطوة الأولى في كتابة النص المعلوماتي:",
+    "options": [
+     "جمع المعلومات من الكتب أو الإنترنت والتأكد من صحتها",
+     "كتابة الخاتمة",
+     "المراجعة",
+     "ذكر المصادر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف أرتّب فكري؟",
+    "options": [
+     "برسم مخطط أو قائمة لتنظيمها",
+     "بكتابتها عشوائيًّا",
+     "بنسيانها",
+     "بحذفها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بعد كتابة النص المعلوماتي:",
+    "options": [
+     "أراجع الأخطاء الإملائية وأتأكد من وضوح الفكر وترتيبها",
+     "أمزقه",
+     "لا أراجعه",
+     "أنسخه كما هو"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "عناصر النص المعلوماتي:",
+    "options": [
+     "مقدمة وموضوع وخاتمة",
+     "عنوان فقط",
+     "حوار",
+     "أبيات شعر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "من مصادر المعلومات:",
+    "options": [
+     "المجلات والجرائد",
+     "التخمين",
+     "الأحلام",
+     "الإشاعات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أستشهد بمصادر:",
+    "options": [
+     "موثوقة",
+     "مجهولة",
+     "خيالية",
+     "قديمة جدًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "طول النص المطلوب:",
+    "options": [
+     "120-150 كلمة",
+     "5 كلمات",
+     "2000 كلمة",
+     "سطر واحد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "عالم عربي مشهور مناسب للكتابة:",
+    "options": [
+     "الحسن بن الهيثم",
+     "شكسبير",
+     "نيوتن",
+     "أينشتاين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أعرض ما كتبت على:",
+    "options": [
+     "زملائي",
+     "لا أحد",
+     "نفسي فقط",
+     "الغرباء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أثناء عرض زملائي أكون:",
+    "options": [
+     "مشجّعًا",
+     "ساخرًا",
+     "مشغولًا",
+     "غاضبًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "يسهم العالِم بعلمه في تقدم:",
+    "options": [
+     "البشرية",
+     "نفسه فقط",
+     "لا أحد",
+     "بيته فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أتأكد من صحة المعلومات قبل كتابتها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "لا داعي لذكر مصادر المعلومات في النص المعلوماتي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أراعي قواعد الكتابة السليمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "النص المعلوماتي يعتمد على الخيال والمبالغة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أستخدم بطاقة الشكر والتقييم لأقدّم لزميلي ملاحظاتي الإيجابية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أبدأ النص بمقدمة مشوّقة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "العلماء العرب ساهموا في بناء الحضارة الحديثة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u3l8",
+  "kind": "القراءة",
+  "title": "رحلة إلى المستقبل",
+  "desc": "الدرس الثالث (القراءة)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما السؤال الذي يبدأ به النص؟",
+    "options": [
+     "كيف تبدو الحياة في المستقبل؟",
+     "متى اخترع الهاتف؟",
+     "من بنى الأهرامات؟",
+     "لماذا نذهب إلى المدرسة؟"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف يتغير المنزل في خيال الكاتبة؟",
+    "options": [
+     "تتغير تصميماته كل شهر حتى لا تشعر بالملل",
+     "لا يتغير أبدًا",
+     "يُهدم كل عام",
+     "يصبح أصغر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أين يوجد عنوان البيت الجديد الذي اشتراه الأب؟",
+    "options": [
+     "على سطح القمر",
+     "على شاطئ البحر",
+     "في الصحراء",
+     "في الريف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "لماذا انتقل الناس إلى القمر؟",
+    "options": [
+     "بعد أن ازدحمت كثير من مدن العالم",
+     "هربًا من البرد",
+     "لأن القمر أجمل",
+     "بحثًا عن الذهب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف أصبحت السيارات في المستقبل؟",
+    "options": [
+     "تطير في طبقات متعددة",
+     "تسير ببطء",
+     "تعمل بالفحم",
+     "اختفت تمامًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الرسالة التي يحاول النص إيصالها؟",
+    "options": [
+     "كل اختراع يبدأ بفكرة، فلا تتوقفوا عن الحلم",
+     "الخيال لا فائدة منه",
+     "المستقبل مخيف",
+     "لا داعي للتفكير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الملابس الذكية تتغير:",
+    "options": [
+     "ألوانها",
+     "أحجامها",
+     "أسعارها",
+     "أسماؤها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الجدران الذكية تقيس:",
+    "options": [
+     "المشاعر",
+     "الحرارة",
+     "الطول",
+     "الوزن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "السيارات تعمل بالطاقة:",
+    "options": [
+     "الشمسية",
+     "النووية",
+     "الفحم",
+     "البنزين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «يسيرًا»:",
+    "options": [
+     "سهلًا",
+     "قليلًا",
+     "ممتعًا",
+     "ممكنًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مضاد «يسيرًا»:",
+    "options": [
+     "عسيرًا",
+     "سهلًا",
+     "قريبًا",
+     "ممكنًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «كادت»:",
+    "options": [
+     "اقتربت",
+     "ابتعدت",
+     "انتهت",
+     "بدأت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «المنبعثة»:",
+    "options": [
+     "المندفعة",
+     "الطيبة",
+     "المميزة",
+     "المنعشة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «تنفد»:",
+    "options": [
+     "تفنى وتذهب",
+     "تبقى",
+     "تزيد",
+     "تتلون"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مضاد «الواقع»:",
+    "options": [
+     "الخيال",
+     "الحاصل",
+     "الموجود",
+     "الحقيقة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الجهاز الصغير الذي غيّر وجه العالم ينقّي الجو من التلوث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الخيال لا يساعد في صناعة المستقبل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "معنى «عانى»: قاسى.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "معنى «يزعمون»: يعلمون يقينًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كان من قبلنا يظنون أنه لا يمكن أن يتحدث الناس في هاتف أو يطيروا بطائرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u3l9",
+  "kind": "القواعد النحوية",
+  "title": "إنّ وأخواتها",
+  "desc": "قواعد نحوية - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" y1=\"20\" x2=\"15\" y2=\"20\"/><line x1=\"12\" y1=\"4\" x2=\"12\" y2=\"20\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "(إنّ وأخواتها) حروف ناسخة تدخل على الجملة الاسمية:",
+    "options": [
+     "فتنصب المبتدأ ويسمى اسمها، وترفع الخبر ويسمى خبرها",
+     "فترفع المبتدأ وتنصب الخبر",
+     "فتجر المبتدأ",
+     "فترفعهما معًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أخوات إنّ:",
+    "options": [
+     "أنّ - كأنّ - لكنّ - ليت - لعلّ",
+     "كان - أصبح - ظلّ - بات",
+     "ليس - صار - أمسى",
+     "كاد - عسى - أوشك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "(إنّ وأخواتها) هي:",
+    "options": [
+     "حروف ناسخة",
+     "أفعال ناسخة",
+     "أسماء إشارة",
+     "ضمائر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في «إنّ المهندسَ مبدعٌ» اسم إنّ:",
+    "options": [
+     "المهندس",
+     "مبدع",
+     "إنّ",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في «ليت الطريقَ سهلٌ» خبر ليت:",
+    "options": [
+     "سهل",
+     "الطريق",
+     "ليت",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الخبر بعد الحروف الناسخة يظل:",
+    "options": [
+     "مرفوعًا",
+     "منصوبًا",
+     "مجرورًا",
+     "مجزومًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أدخل (إنّ): الصادقُ محبوبٌ",
+    "options": [
+     "إنّ الصادقَ محبوبٌ",
+     "إنّ الصادقُ محبوبًا",
+     "إنّ الصادقَ محبوبًا",
+     "إنّ الصادقِ محبوبٍ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أدخل (لعلّ): أخوك ناجحٌ",
+    "options": [
+     "لعلّ أخاك ناجحٌ",
+     "لعلّ أخوك ناجحٌ",
+     "لعلّ أخيك ناجحًا",
+     "لعلّ أخاك ناجحًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أدخل (ليت): الموظفون حاضرون",
+    "options": [
+     "ليت الموظفين حاضرون",
+     "ليت الموظفون حاضرين",
+     "ليت الموظفين حاضرين",
+     "ليت الموظفون حاضرون"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أدخل (كأنّ): المصباحان قمران",
+    "options": [
+     "كأنّ المصباحين قمران",
+     "كأنّ المصباحان قمرين",
+     "كأنّ المصباحين قمرين",
+     "كأنّ المصباحان قمران"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الحرف الناسخ في «لعلّ اللاعبين ماهرون»:",
+    "options": [
+     "لعلّ",
+     "اللاعبين",
+     "ماهرون",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "اسم الناسخ في «كأنّ العلمَ بحرٌ»:",
+    "options": [
+     "العلم",
+     "بحر",
+     "كأنّ",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "خبر لكنّ في «الامتحان صعب، لكنّ المجتهدَ ناجحٌ»:",
+    "options": [
+     "ناجح",
+     "المجتهد",
+     "صعب",
+     "الامتحان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "اسم أنّ في «أدركتُ أنّ الكلمتين مترادفتان»:",
+    "options": [
+     "الكلمتين",
+     "مترادفتان",
+     "أدركت",
+     "أنّ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "(كان) من أخوات إنّ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "في «علمتُ أنّ العاملاتِ مجتهداتٌ» (العاملات) اسم أنّ منصوب بالكسرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «الجو حارٌّ لكنّ الهواءَ منعشٌ».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «إنّ الطالبُ متحمسًا».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "المبتدأ بعد الحروف الناسخة يتغير من الرفع إلى النصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "(إنّ وأخواتها) أفعال ناسخة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l10",
+  "kind": "القواعد النحوية",
+  "title": "أنواع خبر إنّ وأخواتها",
+  "desc": "قواعد نحوية - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" y1=\"20\" x2=\"15\" y2=\"20\"/><line x1=\"12\" y1=\"4\" x2=\"12\" y2=\"20\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "أنواع خبر (إنّ وأخواتها):",
+    "options": [
+     "مفرد وجملة وشبه جملة",
+     "مرفوع ومنصوب",
+     "ظاهر ومستتر",
+     "فعل وحرف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "خبر (إنّ وأخواتها) الجملة وشبه الجملة يكون في محل:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر",
+     "جزم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "خبر (إنّ وأخواتها) الجملة يشتمل على:",
+    "options": [
+     "رابط يعود على اسم إنّ وأخواتها",
+     "حرف جر",
+     "ظرف",
+     "اسم إشارة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "نوع الخبر في «إنّ المهندسَ مبدعٌ»:",
+    "options": [
+     "مفرد",
+     "جملة اسمية",
+     "جملة فعلية",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "نوع الخبر في «لعلّ البحرَ أمواجُه هادئةٌ»:",
+    "options": [
+     "جملة اسمية",
+     "جملة فعلية",
+     "مفرد",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "نوع الخبر في «الطعام مفيد، لكنّ الإسرافَ يضرّ»:",
+    "options": [
+     "جملة فعلية",
+     "جملة اسمية",
+     "مفرد",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «علمتُ أنّ الكتاب فوق الرفّ»",
+    "options": [
+     "شبه جملة ظرف",
+     "مفرد",
+     "جار ومجرور",
+     "جملة فعلية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «لعلّ الرحلة غدًا»",
+    "options": [
+     "شبه جملة ظرف",
+     "مفرد",
+     "جملة اسمية",
+     "جملة فعلية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «إنّ النظافة من الإيمان»",
+    "options": [
+     "جار ومجرور",
+     "ظرف",
+     "مفرد",
+     "جملة اسمية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نوع الخبر: «كأنّ التلميذين عالمان»",
+    "options": [
+     "مفرد",
+     "جملة اسمية",
+     "شبه جملة",
+     "جملة فعلية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الرابط في «لعلّ البحر أمواجُه هادئة»:",
+    "options": [
+     "الهاء في (أمواجه)",
+     "البحر",
+     "هادئة",
+     "لعلّ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الرابط في «لكنّ الإسراف يضرّ»:",
+    "options": [
+     "ضمير مستتر (هو)",
+     "الإسراف",
+     "لكنّ",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع الخبر: «إنّ الطالب متحمس»",
+    "options": [
+     "مفرد",
+     "جملة اسمية",
+     "جملة فعلية",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع الخبر: «ليت فصل الربيع يمتدّ طوال العام»",
+    "options": [
+     "جملة فعلية",
+     "جملة اسمية",
+     "مفرد",
+     "شبه جملة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «لعلّ المسافرين حقائبُهم جاهزة» الخبر جملة اسمية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «كأنّ ذا العلم مصباحٌ منير» الخبر جملة فعلية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "في «المدربون غائبون، لكنّ اللاعبين ملتزمون» خبر لكنّ مفرد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في «رأيتُ في الحلم أنّ الطائر يتحدث معي» الخبر جملة فعلية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "خبر إنّ الجملة يكون في محل نصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (ذا) في «كأنّ ذا العلم» اسم كأنّ منصوب بالألف.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u3l11",
+  "kind": "القواعد الإملائية",
+  "title": "تطبيقات على كتابة الهمزة المتوسطة على الواو",
+  "desc": "قواعد إملائية - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الواو في (تساؤُل):",
+    "options": [
+     "الهمزة مضمومة وقبلها حرف ساكن",
+     "الهمزة مفتوحة وقبلها مضموم",
+     "الهمزة ساكنة وقبلها مضموم",
+     "الهمزة مكسورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الواو في (يَؤُمّ):",
+    "options": [
+     "الهمزة مضمومة وقبلها حرف مفتوح",
+     "الهمزة ساكنة وقبلها مضموم",
+     "الهمزة مفتوحة وقبلها مضموم",
+     "الهمزة مكسورة وقبلها مفتوح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الواو في (يُؤَدّي):",
+    "options": [
+     "الهمزة مفتوحة وقبلها حرف مضموم",
+     "الهمزة مضمومة وقبلها مفتوح",
+     "الهمزة ساكنة وقبلها مكسور",
+     "الهمزة مكسورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الواو في (المُؤْمِن):",
+    "options": [
+     "الهمزة ساكنة وقبلها حرف مضموم",
+     "الهمزة مفتوحة وقبلها مضموم",
+     "الهمزة مضمومة وقبلها ساكن",
+     "الهمزة مكسورة وقبلها مضموم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "صديقي ... أشعارًا جميلة",
+    "options": [
+     "يؤلف",
+     "يألف",
+     "يئلف",
+     "يولف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الناجح يحيا ...",
+    "options": [
+     "بالتفاؤل",
+     "بالتفائل",
+     "بالتفاأل",
+     "بالتفاول"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أشتاق إلى ... جدتي في القرية",
+    "options": [
+     "رؤية",
+     "رأية",
+     "رئية",
+     "روية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مصر في قلبي و...",
+    "options": [
+     "فؤادي",
+     "فأادي",
+     "فئادي",
+     "فوادي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الإنسان الصالح لا ... الحيوانات",
+    "options": [
+     "يؤذي",
+     "يأذي",
+     "يئذي",
+     "يوذي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مفرد (أسئلة):",
+    "options": [
+     "سؤال",
+     "سأال",
+     "سئال",
+     "سوال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "اسم إشارة للقريب (جمع):",
+    "options": [
+     "هؤلاء",
+     "هألاء",
+     "هئلاء",
+     "هولاء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "كلمة جذرها (أجل): لا ... عمل اليوم إلى الغد",
+    "options": [
+     "تؤجّل",
+     "تأجّل",
+     "تئجّل",
+     "توجّل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "طرحتُ ... على معلمي فأجابني بلطف",
+    "options": [
+     "سؤالًا",
+     "سأالًا",
+     "سئالًا",
+     "سوالًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الهمزة المتوسطة تكتب على الواو إذا كانت مضمومة وقبلها مفتوح أو ساكن.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «هؤلاء أصدقائي منذ الطفولة».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "تُكتب (مؤلم) بهمزة على الألف (مألم).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الهمزة في (يؤدي) مفتوحة وقبلها مضموم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «العلم مؤشر على تقدم الأمم».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «الشخص المتفاؤل يرى العالم جميلًا».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الهمزة في (المؤمن) ساكنة وقبلها مضموم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u3l12",
+  "kind": "التحدث",
+  "title": "حلم يصنع مستقبلًا",
+  "desc": "التحدث - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما معنى «أحلام اليوم هي اختراعات الغد، فلا تتردد في صنع مستقبلك»؟",
+    "options": [
+     "ما نحلم به اليوم قد يصبح اختراعًا حقيقيًّا غدًا",
+     "الأحلام لا تتحقق",
+     "الاختراعات لا علاقة لها بالأحلام",
+     "المستقبل لا يمكن صنعه"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كل إنجاز عظيم بدأ بـ:",
+    "options": [
+     "خيال بسيط ثم تحوّل إلى حقيقة",
+     "المال فقط",
+     "الصدفة",
+     "الحظ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "موضوع التحدث في هذا الدرس:",
+    "options": [
+     "تأثير الخيال الشجاع والتفكير الإبداعي في تحويل الأحلام إلى إنجازات",
+     "رحلة إلى الشاطئ",
+     "طعامي المفضل",
+     "أيام الأسبوع"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الحوار الأول: مزارع يزرع بيده، وآخر يستخدم:",
+    "options": [
+     "روبوتات زراعية متطورة",
+     "فأسًا قديمًا",
+     "حيوانات فقط",
+     "لا شيء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الحوار الثاني: رسّام يرسم على قطعة قماش، وآخر يرسم باستخدام:",
+    "options": [
+     "الذكاء الاصطناعي",
+     "الفحم فقط",
+     "الرمل",
+     "أصابعه فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "جريدة لنشر الأخبار، وتطبيق ينقل الأخبار:",
+    "options": [
+     "لحظة حدوثها",
+     "بعد شهر",
+     "بعد عام",
+     "لا ينقلها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أتحدث بثقة وأتحكم في:",
+    "options": [
+     "توتري",
+     "صوتي فقط",
+     "يدي فقط",
+     "لا شيء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أتحدث بوضوح وأساليب:",
+    "options": [
+     "متنوعة",
+     "مكررة",
+     "صعبة",
+     "غامضة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "لا تستهن ... فقد تغيّر العالم",
+    "options": [
+     "بفكرتك",
+     "بوقتك",
+     "بمالك",
+     "بصديقك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "من الحروف المطموسة في خط النسخ:",
+    "options": [
+     "الفاء",
+     "الألف",
+     "الدال",
+     "الراء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "التفكير الإبداعي يغيّر:",
+    "options": [
+     "مستقبلنا",
+     "ماضينا",
+     "لا شيء",
+     "ألواننا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الخيال الشجاع يحوّل الأحلام إلى:",
+    "options": [
+     "إنجازات",
+     "أوهام",
+     "مخاوف",
+     "مشكلات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أنهي الحديث بخاتمة:",
+    "options": [
+     "مؤثرة",
+     "مملة",
+     "مفاجئة",
+     "غامضة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كل إنجاز عظيم بدأ بخيال بسيط.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "يجب أن أتردد في صنع مستقبلي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أستخدم لغة الجسد المعبّرة أثناء الحديث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الأفكار الصغيرة لا يمكن أن تغيّر العالم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أكتب «لا تستهن بفكرتك فقد تغيّر العالم» بخطي النسخ والرقعة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أستطلع رأي زملائي لأطوّر أدائي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ضبط الكلمات ضبطًا صحيحًا غير مهم في الحديث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l13",
+  "kind": "الكتابة",
+  "title": "تطبيقات على كتابة تقرير",
+  "desc": "الكتابة - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "موضوع التقرير في هذا الدرس:",
+    "options": [
+     "مسابقة المخترع الصغير",
+     "معسكر الكشافة",
+     "ندوة فن النصيحة",
+     "حفل عيد الأم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما معنى «بالعلم والعمل تتحول الأحلام إلى إنجازات عظيمة تغيّر العالم»؟",
+    "options": [
+     "الأحلام تتحقق بالعلم والجهد",
+     "الأحلام تتحقق وحدها",
+     "العلم لا يغيّر العالم",
+     "العمل غير مهم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في تقرير مسابقة المخترع الصغير أصف أحداث:",
+    "options": [
+     "يوم التكريم",
+     "الإجازة",
+     "المباراة",
+     "الرحلة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "مقدمة التقرير تشرح:",
+    "options": [
+     "أهمية الموضوع",
+     "الخلاصة",
+     "التوصيات",
+     "أسماء الفائزين فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "خاتمة التقرير تشمل:",
+    "options": [
+     "الخلاصة والتوصيات",
+     "المقدمة",
+     "الأحداث بالترتيب",
+     "الأسئلة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الموضوع فقرات تشمل الأحداث:",
+    "options": [
+     "بالترتيب",
+     "عشوائيًّا",
+     "بالمقلوب",
+     "ناقصة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "بعد الكتابة أراجع الأخطاء:",
+    "options": [
+     "الإملائية",
+     "الحسابية",
+     "العلمية",
+     "الفنية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أنسّق التقرير بشكل:",
+    "options": [
+     "جيد",
+     "سيئ",
+     "عشوائي",
+     "مزدحم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أرتّب المعلومات في نقاط:",
+    "options": [
+     "رئيسة",
+     "فرعية فقط",
+     "مكررة",
+     "ناقصة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أضيف لدعم المعلومات:",
+    "options": [
+     "صورًا أو رسومًا",
+     "كلامًا عاميًّا",
+     "أخطاء",
+     "مبالغات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أعرض التقرير على:",
+    "options": [
+     "زملائي",
+     "لا أحد",
+     "الغرباء",
+     "نفسي فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أعبّر عن رأيي في عرض زميلي بأسلوب:",
+    "options": [
+     "لطيف",
+     "قاسٍ",
+     "ساخر",
+     "جارح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "عدد كلمات التقرير تقريبًا:",
+    "options": [
+     "120 - 150",
+     "10 - 20",
+     "500 - 600",
+     "1000"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "التقرير يتكون من مقدمة وموضوع وخاتمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "لا أحتاج لتحديد المعلومات قبل كتابة التقرير.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أتأكد أن التقرير منسق بشكل جيد وسهل القراءة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أراعي ترتيب الفكر في التقرير.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الخاتمة في التقرير تشرح أهمية الموضوع فقط.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أقدّر جهد زميلي في التحضير أثناء عرضه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "العمل وحده دون علم يكفي لتحقيق الإنجازات العظيمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l14",
+  "kind": "النص الشعري",
+  "title": "سعادة الأوطان",
+  "desc": "الدرس الرابع (النص الشعري)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M9 18V5l12-2v13\"/><circle cx=\"6\" cy=\"18\" r=\"3\"/><circle cx=\"18\" cy=\"16\" r=\"3\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "من قائل قصيدة «سعادة الأوطان»؟",
+    "options": [
+     "معروف الرصافي",
+     "عبد العزيز عتيق",
+     "إبراهيم ناجي",
+     "غانم الروحاني"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "معروف الرصافي أديب وشاعر:",
+    "options": [
+     "عراقي",
+     "مصري",
+     "سوري",
+     "لبناني"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بمَ تُقاس هِمم الرجال كما في القصيدة؟",
+    "options": [
+     "بزمانها",
+     "بأموالها",
+     "بأعمارها",
+     "بأسمائها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سعادة الأوطان تكون في:",
+    "options": [
+     "عمرانها",
+     "خرابها",
+     "كثرة سكانها فقط",
+     "بُعدها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أساس عمران البلاد كما يرى الشاعر:",
+    "options": [
+     "التعاون",
+     "التنافس",
+     "الخلاف",
+     "الانعزال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "لا يتحقق تعاون الأقوام إلا بـ:",
+    "options": [
+     "نشر العلم في أوطانها",
+     "كثرة المال",
+     "الحروب",
+     "السفر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "«كم قد أقامت للعلوم مدارسًا» تعبير يدل على:",
+    "options": [
+     "كثرة المدارس التي أنشأها العرب",
+     "قلة المدارس",
+     "هدم المدارس",
+     "إغلاق المدارس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «مقيسة»:",
+    "options": [
+     "يتم قياسها",
+     "مكسورة",
+     "منسية",
+     "مخفية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مضاد «عمرانها»:",
+    "options": [
+     "خرابها",
+     "بنيانها",
+     "أمنها",
+     "اقتصادها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «بيانها»:",
+    "options": [
+     "فصاحتها",
+     "خطها",
+     "رأيها",
+     "أسلوبها فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «يعيا»:",
+    "options": [
+     "يعجز",
+     "يتحدث",
+     "يبحث",
+     "يعبّر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مفرد «أقطار»:",
+    "options": [
+     "قُطر",
+     "قطار",
+     "قطرة",
+     "مقطورة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «تحيّر» المراد:",
+    "options": [
+     "تندهش",
+     "تفرح",
+     "تغضب",
+     "تنام"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«ذوو الإحصاء»:",
+    "options": [
+     "أصحاب علوم الحساب والعدد",
+     "الأطباء",
+     "الشعراء",
+     "المزارعون"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«عمرانها - سكانها - أوطانها» كلمات:",
+    "options": [
+     "متماثلة النهاية",
+     "متضادة",
+     "مترادفة",
+     "أفعال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "عمران البلاد يعتمد على تعاون أهلها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصناعة ليست مهمة في بناء الأوطان.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كرّر الشاعر كلمة (تعاون) للتأكيد على أنه أساس عمران البلاد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ولد معروف الرصافي عام 1875م وتوفي عام 1945م.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "يرى الشاعر أن تقدم الأوطان لا علاقة له بتعاون أبنائها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u3l15",
+  "kind": "عودة للقراءة مع الأسرة",
+  "title": "مسرحية «فكّر قبل أن تفعل» - المشهد الثالث",
+  "desc": "المشهد الثالث: سقوط المجرم",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما عنوان المشهد الثالث؟",
+    "options": [
+     "سقوط المجرم",
+     "كلمات من ذهب",
+     "الحكمة الغالية",
+     "خاتم الملك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف حضر الحاجب إلى الملك؟",
+    "options": [
+     "يحاول التظاهر بالبراءة",
+     "معترفًا بجريمته",
+     "هاربًا",
+     "مبتسمًا فرحًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بمَ وصف الحاجب الحلاق أمام الملك؟",
+    "options": [
+     "أحمق وكاذب جبان",
+     "صادق وأمين",
+     "شجاع ومخلص",
+     "حكيم وذكي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "لماذا لم يفعل الحلاق الجريمة؟",
+    "options": [
+     "لأنه فكّر قبل أن يفعل حين قرأ الحكمة في اللوحة",
+     "لأنه خاف من الحاجب",
+     "لأنه لم يجد الخاتم",
+     "لأنه نسي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "فيمَ فكّر الحلاق؟",
+    "options": [
+     "في عواقب الجريمة عليه وعلى الناس",
+     "في المال فقط",
+     "في البيت الجميل",
+     "في المنصب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا أدرك الملك في النهاية؟",
+    "options": [
+     "لماذا دفع عشرة آلاف دينار في هذه الحكمة",
+     "أن اللوحة بلا قيمة",
+     "أن الحلاق كاذب",
+     "أن الحاجب بريء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا أمر الملك الحراس بشأن الحاجب؟",
+    "options": [
+     "أن يقيّدوه ويأخذوه إلى السجن",
+     "أن يعفوا عنه",
+     "أن يكافئوه",
+     "أن يطلقوا سراحه"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "خيّم على القصر صمت:",
+    "options": [
+     "رهيب",
+     "مرح",
+     "هادئ",
+     "جميل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "بدا الحلاق:",
+    "options": [
+     "صادقًا واثقًا",
+     "خائفًا مرتبكًا",
+     "غاضبًا",
+     "ضاحكًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "نظر الملك إلى الحاجب بـ:",
+    "options": [
+     "غضب",
+     "فرح",
+     "حب",
+     "خوف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الحكمة أنقذت:",
+    "options": [
+     "المملكة",
+     "الحاجب",
+     "السوق",
+     "الدكان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "قال الحاجب وهو يُجَرّ:",
+    "options": [
+     "سامحني، العفو يا مولاي",
+     "أنا بريء تمامًا",
+     "أريد المال",
+     "سأهرب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "وصف الملك الحاجب بأنه:",
+    "options": [
+     "خائن مخادع",
+     "أمين صادق",
+     "شجاع",
+     "حكيم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "لو انتشر الفساد لضاعت:",
+    "options": [
+     "حقوق الناس",
+     "الألعاب",
+     "الأشجار",
+     "الكتب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "تقدم الملك إلى الجمهور وقال:",
+    "options": [
+     "ماذا لو فكّرنا جميعًا قبل أن نفعل؟",
+     "الوقت من ذهب",
+     "العلم نور",
+     "اصنع قرارك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "قال الملك: هذه الحكمة لا تُقدَّر بثمن.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "عفا الملك عن الحاجب في النهاية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "قال الحلاق إنه سيفقد احترامه لذاته لو ارتكب الجريمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كان الحاجب يكاد يملأ المملكة فسادًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ارتكب الحلاق الجريمة ثم ندم عليها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let animIntervals = [];
+    let wrongAnswers = [];
+    const TYPE_NAMES = { mcq: "اختيار من متعدد", bubbles: "الفقاعات المتساقطة", shooting: "التنشين والاصطياد", true_false: "صح أم خطأ" };
+
+    function stopAnimations() {
+        clearInterval(animInterval);
+        animIntervals.forEach(clearInterval);
+        animIntervals = [];
+    }
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach((game, i) => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <span class="num">${i + 1}</span>
+                <div class="icon-container">${game.icon}</div>
+                <span class="kind-badge">${game.kind}</span>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="count">🎯 ${game.questions.length} سؤالًا متنوعًا</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        stopAnimations();
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة لقائمة الدروس</button>
+            </div>
+        `;
+
+        window.lastScore = score;
+        window.lastTotal = currentQuestions.length;
+        window.lastGameTitle = (currentGame && currentGame.title) ? currentGame.title : '';
+    }
+
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]);
+        qIndex = 0;
+        wrongAnswers = [];
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        window.scrollTo(0, 0);
+        renderNextState();
+    }
+
+    function renderNextState() {
+        stopAnimations();
+        if (qIndex >= currentQuestions.length) { gameComplete(); return; }
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+        const type = currentQuestions[qIndex].type || currentGame.type;
+        const tag = document.createElement('div');
+        tag.className = 'q-type-tag';
+        tag.innerText = TYPE_NAMES[type] || '';
+        gc.appendChild(tag);
+        if (type === 'mcq') renderMCQ(gc);
+        else if (type === 'bubbles') renderBubbles(gc);
+        else if (type === 'shooting') renderShooting(gc);
+        else renderTrueFalse(gc);
+    }
+
+    // --- أنماط الألعاب ---
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.42 + Math.random() * 0.42; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        stopAnimations();
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+        container.appendChild(qBox);
+        container.appendChild(area);
+        let isAnswered = false;
+        const areaW = () => area.clientWidth || window.innerWidth;
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            bird.style.top = (8 + index * 23) + '%';
+            let pos = (index % 2 === 0) ? -200 : areaW();
+            let speed = (Math.random() * 1.2 + 1.2) * ((index % 2 === 0) ? 1 : -1);
+            bird.style.left = pos + 'px';
+            bird.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                stopAnimations();
+                bird.style.color = 'white';
+                bird.style.borderColor = 'white';
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            area.appendChild(bird);
+            animIntervals.push(setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                const w = areaW();
+                if (pos > w + 50) pos = -bird.offsetWidth - 20;
+                if (pos < -bird.offsetWidth - 60) pos = w + 20;
+                bird.style.left = pos + 'px';
+            }, 20));
+        });
+        const hint = document.createElement('div');
+        hint.style.cssText = 'text-align:center;margin-top:15px;color:var(--primary);font-weight:bold;font-size:1.1rem;';
+        hint.innerHTML = '🎯 اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!';
+        container.appendChild(hint);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

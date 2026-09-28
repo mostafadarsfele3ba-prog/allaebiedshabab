@@ -1,0 +1,3664 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الوحدة الأولى: أطور ذاتي 🎯 مع الأستاذة آلاء عبيد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4c1d95;      
+            --primary-light: #a855f7; 
+            --secondary: #c026d3;    
+            --success: #16a34a;      
+            --danger: #ef4444;       
+            --warning: #f59e0b;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f6f1fc;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #2e1065, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #ede9fe;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.5vw, 2.7rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #f0abfc, #e879f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.1;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #f5f3ff; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(99, 102, 241, 0.2); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #4c1d95; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #a855f7; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #4c1d95;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #c026d3;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #2e1065, #4c1d95);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #a855f7; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #4c1d95;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23e0fbfc" width="100%" height="100%"/><circle fill="%23bae6fd" cx="20%" cy="30%" r="50"/><circle fill="%23bae6fd" cx="80%" cy="60%" r="70"/><circle fill="%23bae6fd" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #a855f7; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #faf5ff; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+    
+        .brand-logo { width: 220px; height: 220px; border-radius: 30px; border: 4px solid var(--warning); box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; flex-shrink: 0; }
+        @media (max-width: 600px) { .brand-logo { width: 150px; height: 150px; } }
+        .home-link { position: absolute; top: 15px; right: 15px; z-index: 5; background: rgba(255,255,255,0.18); color: #fff; border: 1px solid rgba(255,255,255,0.35); border-bottom: 3px solid rgba(0,0,0,0.25); padding: 8px 16px; font-size: 1rem; text-decoration: none; }
+        .kind-badge { display: inline-block; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #fff; font-size: 0.85rem; font-weight: 800; padding: 3px 14px; border-radius: 20px; margin-bottom: 10px; }
+        .menu-card .count { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; background: #f5f3ff; color: var(--primary); font-weight: 800; font-size: 0.9rem; padding: 4px 14px; border-radius: 20px; }
+        .menu-card .num { position: absolute; top: 14px; left: 14px; width: 34px; height: 34px; border-radius: 50%; background: #ede9fe; color: var(--primary); font-weight: 900; display: flex; align-items: center; justify-content: center; }
+        .q-type-tag { align-self: center; background: #ede9fe; color: var(--primary); font-weight: 800; font-size: 0.95rem; padding: 4px 16px; border-radius: 20px; margin-bottom: 12px; }
+        #game-title { text-align: center; padding: 0 10px; }
+        .target-bird { white-space: normal; max-width: 70%; }
+    </style>
+</head>
+<body>
+    <header class="header-main" id="main-header">
+        <a class="btn home-link" href="index.html">🏠 الصفحة الرئيسية</a>
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.png" onerror="var e=['logo.jpg','logo.jpeg','logo.webp','logo.gif'],i=+(this.dataset.i||0);if(i<e.length){this.dataset.i=i+1;this.src=e[i];}else{this.onerror=null;}" alt="الأستاذة آلاء عبيد" class="brand-logo">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">درس <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> لعبة</h1>
+                    <h1 class="title-line2">مع الأستاذة آلاء عبيد</h1>
+                    <h2>الصف السادس الابتدائي - الفصل الدراسي الأول</h2>
+                    <p style="margin-top: 10px;">الوحدة الأولى: أطور ذاتي</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f6f1fc" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </header>
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب الأستاذة آلاء عبيد</p>
+        <p class="designer">الأستاذة / آلاء عبيد</p>
+    </footer>
+<script>
+    const allGamesData = [
+ {
+  "id": "u1l1",
+  "kind": "الاستماع",
+  "title": "سمر تطوّر نفسها",
+  "desc": "الدرس الأول (الاستماع)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M3 18v-6a9 9 0 0 1 18 0v6\"/><path d=\"M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما السؤال الذي كانت سمر تفكر دائمًا في الإجابة عنه؟",
+    "options": [
+     "كيف أكون شخصًا ناجحًا مفيدًا لنفسي ولغيري؟",
+     "كيف أصبح لاعبة كرة سلة مشهورة؟",
+     "كيف أحصل على هدية من والديّ؟",
+     "كيف أنهي واجباتي بسرعة؟"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الفكرة الرئيسة للنص المسموع «سمر تطوّر نفسها»؟",
+    "options": [
+     "أهمية تحديد الأهداف والتخطيط",
+     "فوائد ممارسة الرياضة",
+     "الكتابة هواية مفيدة",
+     "أهمية اللعب مع الأصدقاء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما نوع النص المسموع «سمر تطوّر نفسها»؟",
+    "options": [
+     "قصة",
+     "لافتة",
+     "رسالة",
+     "قصيدة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بعد تفكير عميق، ماذا أدركت سمر؟",
+    "options": [
+     "أن عليها الالتزام والعمل الجاد",
+     "أن النجاح يأتي بالحظ",
+     "أن الدراسة غير مهمة",
+     "أن الراحة أهم من العمل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما العادة اليومية التي كانت سمر تقوم بها في نهاية كل يوم؟",
+    "options": [
+     "تجلس مع نفسها وتقيّم ما أنجزته في اليوم",
+     "تشاهد التلفاز ساعات طويلة",
+     "تلعب كرة السلة مع أصدقائها",
+     "تنام مبكرًا دون تفكير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا فعلت سمر عندما أمسكت مذكرتها؟",
+    "options": [
+     "بدأت بتحديد أهدافها الشخصية",
+     "رسمت صورة لغرفتها",
+     "كتبت رسالة لصديقتها",
+     "نسخت درسًا من الكتاب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "من أهداف سمر الشخصية:",
+    "options": [
+     "تحسين مستواها الدراسي",
+     "السهر كل ليلة",
+     "ترك الرياضة",
+     "إهمال الوقت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "بمَ شعرت سمر عندما رأت أهدافها مكتوبة؟",
+    "options": [
+     "بالحماس",
+     "بالملل",
+     "بالخوف",
+     "بالحزن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الخطوة الأولى نحو النجاح هي:",
+    "options": [
+     "تحديد ما تريد تحقيقه",
+     "انتظار الحظ",
+     "تقليد الآخرين",
+     "كثرة النوم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "تطوير الذات رحلة مستمرة تتطلب:",
+    "options": [
+     "الصبر والاجتهاد",
+     "الكسل والراحة",
+     "الحظ وحده",
+     "التسرع"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "ساعد سمرَ على الاستفادة من يومها:",
+    "options": [
+     "تنظيم الوقت",
+     "إضاعة الوقت",
+     "اللعب طوال اليوم",
+     "النوم الطويل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "طوّرت سمر مهاراتها من خلال:",
+    "options": [
+     "قراءة الكتب",
+     "كثرة الألعاب الإلكترونية",
+     "ترك الدراسة",
+     "الجلوس بلا عمل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "ماذا خصصت سمر لكل نشاط في يومها؟",
+    "options": [
+     "وقتًا محددًا",
+     "مكافأة مالية",
+     "صديقة مختلفة",
+     "دفترًا جديدًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أين جلست سمر تفكر في وسائل تحسين نفسها؟",
+    "options": [
+     "في غرفتها",
+     "في الملعب",
+     "في المدرسة",
+     "في الحديقة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "قررت سمر أن تتحسن في مجالات متعددة مثل الدراسة والرياضة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "النجاح يعتمد على الحظ أكثر من العمل الجاد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "وضعت سمر خطة لتحقيق أهدافها فنظّمت وقتها بشكل أفضل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "انضمت سمر إلى دورات تدريبية عبر الإنترنت لتطوير مهاراتها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "قررت سمر في النهاية أن تتوقف عن العمل لتطوير نفسها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "النص القصصي يقدم قصة لها شخصيات وأحداث وزمان ومكان.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l2",
+  "kind": "القراءة",
+  "title": "كنز لا يقدَّر بثمن",
+  "desc": "الدرس الثاني (القراءة)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "كم ثانية في اليوم الواحد كما ورد في النص؟",
+    "options": [
+     "86400 ثانية",
+     "8640 ثانية",
+     "3600 ثانية",
+     "60000 ثانية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الكنز الذي لا يقدّر بثمن في النص؟",
+    "options": [
+     "الوقت",
+     "المال",
+     "الذهب",
+     "الهاتف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الفارق بين المال والوقت كما ذكر النص؟",
+    "options": [
+     "المال يمكن أن يعود، أما الوقت فلا يعود",
+     "الوقت يمكن استرجاعه والمال لا",
+     "كلاهما لا يعود أبدًا",
+     "كلاهما يمكن استرجاعه بسهولة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما المقصود بالمثل: «الوقت من ذهب، إن لم تدركه ذهب»؟",
+    "options": [
+     "الوقت ثمين، وإن لم نستغله مضى ولم يعد",
+     "الوقت يُشترى بالذهب",
+     "الذهب أغلى من الوقت",
+     "يجب أن نبيع الوقت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما أخطر عدوٍّ للوقت حسب النص؟",
+    "options": [
+     "التأجيل",
+     "التخطيط",
+     "التركيز",
+     "الإنتاجية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الفكرة الرئيسة للنص؟",
+    "options": [
+     "أهمية الوقت وتنظيمه بالتخطيط",
+     "فوائد جمع المال",
+     "طريقة فتح حساب مصرفي",
+     "كيفية استخدام الهاتف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى كلمة «ورَدَ»:",
+    "options": [
+     "جاء",
+     "ذهب",
+     "نام",
+     "كتب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مضاد كلمة «إيداع»:",
+    "options": [
+     "سحب",
+     "وضع",
+     "حفظ",
+     "إدخال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى كلمة «التوازن»:",
+    "options": [
+     "الاعتدال",
+     "الإكثار",
+     "الامتناع",
+     "الاستعداد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى كلمة «أفسّر»:",
+    "options": [
+     "أوضّح",
+     "أخفي",
+     "أنسى",
+     "أترك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «المصرفي»:",
+    "options": [
+     "البنكي",
+     "المدرسي",
+     "التجاري",
+     "الزراعي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "التشتت معناه:",
+    "options": [
+     "انشغال العقل بموضوعات مختلفة",
+     "التركيز الشديد",
+     "النوم العميق",
+     "الفرح الكبير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الكلمة المختلفة في جذرها: (استخدم - خدمات - خادم - ...)",
+    "options": [
+     "ضخم",
+     "خدمة",
+     "مستخدم",
+     "استخدام"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مضاد كلمة «الأذكياء»:",
+    "options": [
+     "الأغبياء",
+     "الأقوياء",
+     "الأغنياء",
+     "العلماء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مفرد كلمة «مهامّ»:",
+    "options": [
+     "مهمّة",
+     "مهام",
+     "همّ",
+     "اهتمام"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الوقت الذي يمضي يمكن استرجاعه بسهولة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الأذكياء هم من يفوزون في سباقهم مع الوقت.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "التأجيل والتشتت يجعلاننا أكثر تركيزًا وإنجازًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "الأذكياء يقومون بالمهام جميعًا في وقت واحد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "ينبغي أن نرتّب أولوياتنا بداية من الأهم ثم الأقل أهمية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l3",
+  "kind": "القواعد النحوية",
+  "title": "الاسم النكرة والاسم المعرفة",
+  "desc": "قواعد نحوية - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" y1=\"20\" x2=\"15\" y2=\"20\"/><line x1=\"12\" y1=\"4\" x2=\"12\" y2=\"20\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "الاسم النكرة هو:",
+    "options": [
+     "اسم يدل على شيء غير محدد",
+     "اسم يدل على شيء محدد",
+     "فعل يدل على حدث",
+     "حرف يربط بين كلمتين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الاسم المعرفة هو:",
+    "options": [
+     "اسم يدل على شيء محدد",
+     "اسم يدل على شيء غير محدد",
+     "فعل ماضٍ",
+     "حرف جر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "النكرة والمعرفة:",
+    "options": [
+     "نوعان للاسم، وليسا إعرابًا له",
+     "نوعان للفعل",
+     "نوعان من الحروف",
+     "علامتان من علامات الإعراب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "«وجدتُ قلمًا» كلمة (قلمًا) تدل على:",
+    "options": [
+     "أيّ قلم من الأقلام (نكرة)",
+     "قلم محدد نعرفه (معرفة)",
+     "فعل",
+     "حرف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "«وجدتُ القلمَ» كلمة (القلم) تدل على:",
+    "options": [
+     "قلم محدد نعرفه ونقصده (معرفة)",
+     "أيّ قلم (نكرة)",
+     "فعل ماضٍ",
+     "ضمير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الموقع الإعرابي لكلمة (قصةً) في: «اشتريتُ قصةً من المكتبة»؟",
+    "options": [
+     "مفعول به منصوب",
+     "فاعل مرفوع",
+     "مبتدأ مرفوع",
+     "مجرور بحرف الجر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الموقع الإعرابي لكلمة (لصٌّ) في: «التأجيلُ لصٌّ يسرقُ النجاحَ»؟",
+    "options": [
+     "خبر مرفوع",
+     "مفعول به منصوب",
+     "فاعل مرفوع",
+     "اسم مجرور"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "حدّد الاسم النكرة:",
+    "options": [
+     "رسالةً",
+     "الهاتف",
+     "القلم",
+     "الوقت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "حدّد الاسم المعرفة:",
+    "options": [
+     "الأولويات",
+     "كنزٌ",
+     "رسالةٌ",
+     "زهرةٌ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "«الوقتُ كنزٌ لا يقدّر بثمن» كلمة (كنزٌ):",
+    "options": [
+     "نكرة",
+     "معرفة",
+     "فعل",
+     "حرف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "«تمارسُ صديقتي السباحةَ» كلمة (السباحة):",
+    "options": [
+     "معرفة",
+     "نكرة",
+     "فعل",
+     "حرف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "حوّل (مبلغًا) إلى معرفة:",
+    "options": [
+     "المبلغَ",
+     "مبلغٌ",
+     "مبلغٍ",
+     "مبالغ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "حوّل (المباراةَ) إلى نكرة:",
+    "options": [
+     "مباراةً",
+     "المباراةِ",
+     "مباريات",
+     "مبارى"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«نبتت ... بالحديقة» أكمل باسم نكرة:",
+    "options": [
+     "زهرةٌ",
+     "الزهرةُ",
+     "الورودُ",
+     "الشجرةُ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«يجب أن نوازن بين الدراسة و...» كلمة معرفة:",
+    "options": [
+     "الهواية",
+     "هواية",
+     "هوايةٍ",
+     "هوايات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (عصفورٌ) في «بنى عصفورٌ عشّه» اسم معرفة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (العصفور) في «بنى العصفورُ عشّه» اسم معرفة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "في جملة «ابدأ بالتخطيط لتحقق هدفًا» كلمة (هدفًا) اسم نكرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "النكرة والمعرفة من علامات الإعراب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "في «الوقتُ من ذهبٍ» كلمة (ذهبٍ) اسم نكرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l4",
+  "kind": "القواعد الإملائية",
+  "title": "الهمزة المتوسطة على الألف",
+  "desc": "قواعد إملائية - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "الهمزة المتوسطة هي الهمزة التي تُكتب:",
+    "options": [
+     "في وسط الكلمة",
+     "في أول الكلمة",
+     "في آخر الكلمة",
+     "خارج الكلمة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "تُكتب الهمزة المتوسطة وفق قاعدة:",
+    "options": [
+     "أقوى الحركات بين حركتها وحركة الحرف الذي قبلها",
+     "حركة الحرف الذي بعدها فقط",
+     "عدد حروف الكلمة",
+     "نوع الكلمة اسم أو فعل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ترتيب الحركات من حيث القوة:",
+    "options": [
+     "الكسرة ثم الضمة ثم الفتحة ثم السكون",
+     "الفتحة ثم الضمة ثم الكسرة ثم السكون",
+     "السكون ثم الفتحة ثم الضمة ثم الكسرة",
+     "الضمة ثم الكسرة ثم السكون ثم الفتحة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أضعف الحركات هو:",
+    "options": [
+     "السكون",
+     "الكسرة",
+     "الضمة",
+     "الفتحة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في كلمة (سَأَل) الهمزة:",
+    "options": [
+     "مفتوحة وقبلها حرف مفتوح",
+     "ساكنة وقبلها حرف مفتوح",
+     "مفتوحة وقبلها ساكن صحيح",
+     "مكسورة وقبلها مفتوح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في كلمة (رَأْس) الهمزة:",
+    "options": [
+     "ساكنة وقبلها حرف مفتوح",
+     "مفتوحة وقبلها مفتوح",
+     "مضمومة وقبلها ساكن",
+     "مكسورة وقبلها ساكن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "في كلمة (يَسْأَل) الهمزة:",
+    "options": [
+     "مفتوحة وقبلها حرف صحيح ساكن",
+     "ساكنة وقبلها مفتوح",
+     "مفتوحة وقبلها مفتوح",
+     "مضمومة وقبلها مفتوح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الكلمة الصحيحة إملائيًّا: الأسد ... بصوت مخيف",
+    "options": [
+     "يزأر",
+     "يزئر",
+     "يزؤر",
+     "يزار"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "يستعين الفلاح ... في الزراعة",
+    "options": [
+     "بالفأس",
+     "بالفئس",
+     "بالفؤس",
+     "بالفاس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أعدّت الأم ... سارّة لأبنائها",
+    "options": [
+     "مفاجأة",
+     "مفاجئة",
+     "مفاجؤة",
+     "مفاجاة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "عبّر عن ... بهدوء وأدب",
+    "options": [
+     "رأيك",
+     "رئيك",
+     "رؤيك",
+     "رايك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدمج الحروف: يَ ءْ خُ ذُ",
+    "options": [
+     "يأخذ",
+     "يئخذ",
+     "يؤخذ",
+     "ياخذ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدمج الحروف: تَ ءَ ثُّ رُ",
+    "options": [
+     "تأثّر",
+     "تئثّر",
+     "تؤثّر",
+     "تاثّر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أدمج الحروف: فَ جْ ءَ ةً",
+    "options": [
+     "فجأةً",
+     "فجئةً",
+     "فجؤةً",
+     "فجاةً"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "كلمة همزتها على الألف:",
+    "options": [
+     "كأس",
+     "سُئل",
+     "مؤمن",
+     "بئر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كُتبت الهمزة على الألف في (رأف) لأنها مفتوحة وقبلها مفتوح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كُتبت الهمزة على الألف في (كأس) لأنها ساكنة وقبلها مفتوح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الضمة أقوى من الكسرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كُتبت الهمزة على الألف في (يزأر) لأنها مفتوحة وقبلها ساكن صحيح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "تُكتب كلمة (تأخّر) بهمزة على الياء: (تئخّر).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "u1l5",
+  "kind": "التحدث",
+  "title": "الوقت من ذهب",
+  "desc": "التحدث - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما معنى عبارة: «الوقت فرصة، إن لم تستغله ذهب بلا عودة»؟",
+    "options": [
+     "الوقت إن ضاع لا يعود فيجب استغلاله",
+     "الوقت يعود دائمًا",
+     "الفرص كثيرة لا تنتهي",
+     "الذهب أهم من الوقت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "عند الحديث عن موقف يثبت أن الوقت سبب نجاحك، يجب أن توضح:",
+    "options": [
+     "التحديات التي واجهتك وكيف غيّرت تفكيرك",
+     "أسماء أصدقائك فقط",
+     "ما تحب من الأطعمة",
+     "ألوانك المفضلة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "من إرشادات التحدث الجيد:",
+    "options": [
+     "التحدث بوضوح ولغة سليمة",
+     "التحدث بسرعة شديدة",
+     "الحديث دون مقدمة",
+     "إخفاء الوجه عن المستمعين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف تبدأ حديثك بطريقة جيدة؟",
+    "options": [
+     "بتمهيد ومقدمة جذابة",
+     "بالخاتمة مباشرة",
+     "بالسكوت الطويل",
+     "بكلام لا علاقة له بالموضوع"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف تنهي حديثك؟",
+    "options": [
+     "بخاتمة مؤثرة",
+     "بدون خاتمة",
+     "بسؤال لا علاقة له",
+     "بالاعتذار عن الحديث"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ماذا تستخدم لتجعل حديثك مؤثرًا؟",
+    "options": [
+     "تغيّرات الصوت",
+     "صوتًا واحدًا",
+     "الصمت",
+     "الصراخ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "إدارة الوقت تصنع:",
+    "options": [
+     "الفرق",
+     "الفشل",
+     "الملل",
+     "الفوضى"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ينبغي ترتيب الأفكار ترتيبًا:",
+    "options": [
+     "منطقيًّا",
+     "عشوائيًّا",
+     "مقلوبًا",
+     "ناقصًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مما يضيّع الوقت:",
+    "options": [
+     "التسويف",
+     "التخطيط",
+     "التنظيم",
+     "التركيز"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "التسويف يعني:",
+    "options": [
+     "التأجيل",
+     "الإسراع",
+     "التنظيم",
+     "الإنجاز"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "طالب يواجه صعوبة في إدارة وقته، ينصحه صديقه بـ:",
+    "options": [
+     "تنظيم وقته",
+     "إضاعة وقته",
+     "ترك دراسته",
+     "كثرة اللعب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "لتطوير أدائي أستطلع رأي:",
+    "options": [
+     "زملائي",
+     "لا أحد",
+     "الغرباء فقط",
+     "نفسي فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "عنوان درس التحدث:",
+    "options": [
+     "الوقت من ذهب",
+     "اصنع قرارك",
+     "قوة الكلمات",
+     "سر النجاح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "من مهارات التحدث الجيد التحدث بصوت واضح وأسلوب معبّر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "لا داعي لتمهيد الحديث بمقدمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "التشتت والتسويف يضيّعان الكثير من الوقت.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "استثمار الوقت والتخطيط له أمر مهم للنجاح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الوقت الذي يضيع يمكن تعويضه بسهولة في أي وقت.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "من الحروف الرأسية في خط النسخ حرفا الألف واللام.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "يكتب التلميذ عبارة «الوقت كنز لا يفنى» بخط النسخ مرة وبخط الرقعة مرة أخرى.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l6",
+  "kind": "الكتابة",
+  "title": "نص معلوماتي",
+  "desc": "الكتابة - الدرس الثاني",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما الخطوة الأولى في كتابة النص المعلوماتي؟",
+    "options": [
+     "جمع المعلومات",
+     "المراجعة",
+     "كتابة الخاتمة",
+     "كتابة المصادر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ترتيب خطوات كتابة النص المعلوماتي:",
+    "options": [
+     "جمع المعلومات - ترتيب الفكر - كتابة النص - كتابة المصادر - المراجعة",
+     "المراجعة - كتابة النص - جمع المعلومات",
+     "كتابة النص - المراجعة - جمع المعلومات",
+     "ترتيب الفكر - المراجعة - جمع المعلومات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا تتناول المقدمة في النص المعلوماتي؟",
+    "options": [
+     "أهمية الموضوع",
+     "ملخص ما كُتب",
+     "مصادر المعلومات",
+     "الأخطاء الإملائية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا يتضمن الموضوع في النص المعلوماتي؟",
+    "options": [
+     "عرض الحقائق والمعلومات المتعلقة بالموضوع",
+     "رأيك الشخصي فقط",
+     "قصة خيالية",
+     "أبيات شعرية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "الخاتمة في النص المعلوماتي:",
+    "options": [
+     "تلخّص ما كُتب",
+     "تبدأ موضوعًا جديدًا",
+     "تذكر أهمية الموضوع فقط",
+     "تحتوي على أسئلة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كم نسبة الناس الذين لا يديرون أوقات أعمالهم بشكل جيد حسب النص «إدارة الوقت بفاعلية»؟",
+    "options": [
+     "82%",
+     "28%",
+     "50%",
+     "10%"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "من مصادر المعلومات:",
+    "options": [
+     "الكتب",
+     "الأحلام",
+     "الخيال",
+     "الشائعات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "لترتيب الفكر أرسم:",
+    "options": [
+     "مخططًا",
+     "صورة",
+     "لوحة",
+     "خريطة ملونة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "بعد كتابة النص أراجع الأخطاء:",
+    "options": [
+     "الإملائية",
+     "الرياضية",
+     "العلمية",
+     "الفنية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "النص المعلوماتي يعتمد على:",
+    "options": [
+     "الحقائق",
+     "الخيال",
+     "الأساطير",
+     "المبالغة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "عند البحث عن المعلومات يجب التأكد من:",
+    "options": [
+     "صحتها",
+     "طولها",
+     "لونها",
+     "غرابتها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "إذا فقد الإنسان الوقت فلن يستطيع:",
+    "options": [
+     "إنجاز أي شيء",
+     "النوم",
+     "الكلام",
+     "اللعب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "عدم إدارة الوقت يؤدي إلى:",
+    "options": [
+     "قلة الإنتاج",
+     "زيادة الإنتاج",
+     "النجاح",
+     "التفوق"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "من المصادر الموثوقة:",
+    "options": [
+     "المواقع الإلكترونية الموثوقة",
+     "كلام الناس",
+     "الإشاعات",
+     "التخمين"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "النص المعلوماتي يتكون من مقدمة وموضوع وخاتمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "لا داعي لذكر مصادر المعلومات في النص المعلوماتي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "من خطوات إدارة الوقت: تحديد الأهداف بوضوح وترتيب الأولويات.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "المراجعة تكون قبل جمع المعلومات.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "القراءة من أهم وسائل تطوير الذات.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "تحرص الدولة على نشر القراءة والمعرفة من خلال إنشاء المكتبات.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l7",
+  "kind": "القراءة",
+  "title": "اصنع قرارك",
+  "desc": "الدرس الثالث (القراءة)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما الفكرة الرئيسة لنص «اصنع قرارك»؟",
+    "options": [
+     "خطوات اتخاذ القرار الصحيح",
+     "فوائد الرياضة",
+     "أهمية الإفطار",
+     "رحلة إلى المدرسة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كم درجة في «سلّم اتخاذ القرار» كما ورد في الدرس؟",
+    "options": [
+     "أربع درجات",
+     "ثلاث درجات",
+     "خمس درجات",
+     "درجتان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الدرجة الأولى في سلّم اتخاذ القرار؟",
+    "options": [
+     "مواجهة المشكلة لا الهروب منها",
+     "البحث عن الأعذار",
+     "التكاسل",
+     "الراحة المؤقتة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما القاعدة الذهبية قبل اتخاذ أي قرار؟",
+    "options": [
+     "هل هذا القرار سيفيدني، أم سيعطيني راحة مؤقتة وأخسر بعدها؟",
+     "هل سيعجب أصدقائي؟",
+     "هل هو القرار الأسرع؟",
+     "هل هو القرار الأسهل؟"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كم قرارًا اتخذه التلاميذ في ساعة واحدة منذ الصباح كما ذكر النص؟",
+    "options": [
+     "ثلاثة قرارات",
+     "قرارًا واحدًا",
+     "خمسة قرارات",
+     "عشرة قرارات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "القرار الصحيح في مثال الدرس الصعب هو:",
+    "options": [
+     "مذاكرة الدرس اليوم",
+     "ترك الدرس",
+     "تأجيل الدرس للغد",
+     "نسيان الدرس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «فعّالة»:",
+    "options": [
+     "مؤثرة",
+     "سريعة",
+     "شريكة",
+     "كافية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «عواقبها»:",
+    "options": [
+     "نتائجها",
+     "أقوالها",
+     "أشكالها",
+     "أفعالها"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "معنى «المحتملة»:",
+    "options": [
+     "المتوقَّعة",
+     "المستبعَدة",
+     "المعتدلة",
+     "المستمرة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "مفرد «أعذار»:",
+    "options": [
+     "عُذر",
+     "عذراء",
+     "معذرة",
+     "عذور"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "«لا نزال» تدل على:",
+    "options": [
+     "الاستمرار",
+     "التوقف",
+     "النفي",
+     "الانتهاء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«المدى القريب» المراد به:",
+    "options": [
+     "المستقبل القريب",
+     "المكان البعيد",
+     "الهدف",
+     "الاختيار"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مضاد «الناجحون»:",
+    "options": [
+     "الفاشلون",
+     "الأذكياء",
+     "المجتهدون",
+     "المبدعون"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "الكلمة المختلفة في جذرها: (عواقب - عقب - عقاب - ...)",
+    "options": [
+     "بُقعة",
+     "عاقبة",
+     "تعقيب",
+     "معاقبة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "قرار ترك الدرس نتيجته:",
+    "options": [
+     "راحة مؤقتة وضرر دائم",
+     "فائدة دائمة",
+     "نجاح كبير",
+     "تفوق دراسي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الأشخاص الناجحون يتخذون قراراتهم بطريقة صحيحة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصغار لا يتخذون قرارات.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "إذا كان القرار صائبًا فعواقبه مفيدة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "القرار الصحيح يؤدي إلى راحة مؤقتة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كل خطوة من خطوات اتخاذ القرار تؤثر في الأخرى.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l8",
+  "kind": "القواعد النحوية",
+  "title": "أنواع المعارف",
+  "desc": "قواعد نحوية - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" y1=\"20\" x2=\"15\" y2=\"20\"/><line x1=\"12\" y1=\"4\" x2=\"12\" y2=\"20\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "كلمة (القرار) في «اتخذتُ القرارَ المناسب» معرفة لأنها:",
+    "options": [
+     "معرّفة بالألف واللام",
+     "علَم",
+     "ضمير",
+     "اسم إشارة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كلمة (آدم) في «آدمُ حدّد أهدافه بدقة» معرفة لأنها:",
+    "options": [
+     "علَم (اسم لشخص)",
+     "معرّفة بأل",
+     "اسم موصول",
+     "ضمير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كلمة (نحن) في «نحن نحب بلادنا» معرفة لأنها:",
+    "options": [
+     "ضمير",
+     "اسم إشارة",
+     "علَم",
+     "اسم موصول"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كلمة (هذه) في «هذه الآلة توفّر الوقت» معرفة لأنها:",
+    "options": [
+     "اسم إشارة",
+     "ضمير",
+     "علَم",
+     "معرّفة بأل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كلمة (الذي) في «ينجح الذي يحرص على وقته» معرفة لأنها:",
+    "options": [
+     "اسم موصول",
+     "اسم إشارة",
+     "ضمير",
+     "علَم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كلمة (صناعة) في «صناعةُ القرار مهارةٌ مهمة» معرفة لأنها:",
+    "options": [
+     "مضافة إلى معرفة",
+     "معرّفة بأل",
+     "علَم",
+     "ضمير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "اسم علَم:",
+    "options": [
+     "مصر",
+     "الكتاب",
+     "هذا",
+     "التي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "اسم موصول:",
+    "options": [
+     "التي",
+     "هذا",
+     "هو",
+     "محمد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "اسم إشارة:",
+    "options": [
+     "تلك",
+     "الذين",
+     "أنتم",
+     "عمر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ضمير منفصل:",
+    "options": [
+     "هو",
+     "هذا",
+     "الذي",
+     "أكتوبر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع المعرفة في (الذين) في «التلاميذ الذين شاركوا مبدعون»:",
+    "options": [
+     "اسم موصول",
+     "اسم إشارة",
+     "ضمير",
+     "علَم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع المعرفة في (أسوان) في «سافرنا إلى أسوان»:",
+    "options": [
+     "علَم",
+     "مضاف إلى معرفة",
+     "ضمير",
+     "معرّف بأل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع المعرفة في (هؤلاء) في «رحّب أبي بهؤلاء الضيوف»:",
+    "options": [
+     "اسم إشارة",
+     "اسم موصول",
+     "علَم",
+     "ضمير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "نوع المعرفة في (ألوانُ اللوحة):",
+    "options": [
+     "مضاف إلى معرفة",
+     "علَم",
+     "ضمير",
+     "اسم إشارة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (كتاب) في «كتابُ التلميذ» معرفة بالإضافة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الضمائر المتصلة مثل (الهاء) ليست من المعارف.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (عمر) في «اتخذ عمرُ قرارات مدروسة» علَم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (أنتم) في «أنتم أصدقاء متعاونون» اسم إشارة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (قائمةً) في «ضع قائمةً متنوعة» اسم معرفة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (أكتوبر) علَم لأنه اسم شهر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l9",
+  "kind": "القواعد الإملائية",
+  "title": "تطبيقات على الهمزة المتوسطة على الألف",
+  "desc": "قواعد إملائية - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الألف في (طمْأنَ):",
+    "options": [
+     "مفتوحة وقبلها حرف صحيح ساكن",
+     "ساكنة وقبلها مفتوح",
+     "مفتوحة وقبلها مفتوح",
+     "مكسورة وقبلها ساكن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الألف في (قرَأَتْ):",
+    "options": [
+     "مفتوحة وقبلها حرف مفتوح",
+     "ساكنة وقبلها مفتوح",
+     "مفتوحة وقبلها ساكن",
+     "مضمومة وقبلها مفتوح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الألف في (سأَل):",
+    "options": [
+     "مفتوحة وقبلها حرف مفتوح",
+     "ساكنة وقبلها مفتوح",
+     "مفتوحة وقبلها ساكن",
+     "مكسورة وقبلها مفتوح"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "سبب كتابة الهمزة على الألف في (الرّأْفة):",
+    "options": [
+     "ساكنة وقبلها حرف مفتوح",
+     "مفتوحة وقبلها مفتوح",
+     "مفتوحة وقبلها ساكن",
+     "مضمومة وقبلها ساكن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "صوّب الخطأ: «أعجبتني قصة الأسد والفئر»",
+    "options": [
+     "والفأر",
+     "والفؤر",
+     "والفار",
+     "والفير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "صوّب الخطأ: «الفؤس من أدوات الفلاح»",
+    "options": [
+     "الفأس",
+     "الفئس",
+     "الفاس",
+     "الفوس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الصديق الوفيّ ... على الأسرار",
+    "options": [
+     "مأمون",
+     "مؤمون",
+     "مئمون",
+     "مامون"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "... الطائرة بسبب المطر",
+    "options": [
+     "تأخّرت",
+     "تئخّرت",
+     "تؤخّرت",
+     "تاخّرت"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "يستشير الابن والده بـ... مستقبله (مفرد: شأن)",
+    "options": [
+     "شؤون",
+     "شئون",
+     "شأون",
+     "شوون"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "رفع الفريق الفائز ... البطولة (مفرد: كؤوس)",
+    "options": [
+     "كأس",
+     "كئس",
+     "كؤس",
+     "كاس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مضارع (أخذتُ):",
+    "options": [
+     "آخذ",
+     "أئخذ",
+     "أؤخذ",
+     "أاخذ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "مضاد (مبكرًا):",
+    "options": [
+     "متأخرًا",
+     "متئخرًا",
+     "متؤخرًا",
+     "متاخرًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "همزتها ساكنة وقبلها مفتوح:",
+    "options": [
+     "رأْي",
+     "سأَل",
+     "يسأَل",
+     "مسأَلة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "همزتها مفتوحة وقبلها ساكن:",
+    "options": [
+     "يزْأَر",
+     "رأْس",
+     "فأْس",
+     "كأْس"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (مسألة) همزتها على الألف لأنها مفتوحة وقبلها ساكن.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "تُكتب (يتأمّل) بهمزة على الواو: (يتؤمّل).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة (تأثّر) همزتها مفتوحة وقبلها مفتوح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الصواب: «حينما أتأمّل السماء أشعر بالهدوء».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الكسرة أضعف الحركات.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "تُكتب الهمزة المتوسطة على الألف إذا كانت ساكنة وقبلها فتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l10",
+  "kind": "التحدث",
+  "title": "اصنع قرارك",
+  "desc": "التحدث - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما معنى عبارة «القرار الصحيح له نتائج إيجابية»؟",
+    "options": [
+     "القرار المدروس يعود علينا بالنفع",
+     "كل القرارات نتائجها سيئة",
+     "القرار السريع دائمًا صحيح",
+     "لا فائدة من اتخاذ القرارات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "عند التحدث عن قرار اتخذته لترتيب أولوياتك، يجب أن توضح:",
+    "options": [
+     "خطوات اتخاذ القرار ونتائجه",
+     "أسماء زملائك",
+     "لون حقيبتك",
+     "مواعيد نومك فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "شخص متردد في اتخاذ قرار، كيف يساعده صديقه؟",
+    "options": [
+     "في تحديد هدفه واختيار الأنسب",
+     "بأن يتخذ القرار بدلًا منه دائمًا",
+     "بأن يطلب منه الهروب من المشكلة",
+     "بأن يؤجل القرار للأبد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "طالب يخشى اتخاذ القرار، ماذا يفعل معلمه؟",
+    "options": [
+     "يشجّعه على اتخاذه وتحمّل نتائجه",
+     "يعاقبه",
+     "يتجاهله",
+     "يسخر منه"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "شاب لا يفكر في العواقب البعيدة، ماذا يفعل والده؟",
+    "options": [
+     "يرشده لفهم وتوقع النتائج المحتملة",
+     "يتركه دون نصيحة",
+     "يلومه أمام الناس",
+     "يمنعه من أي قرار"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "من إرشادات الحديث:",
+    "options": [
+     "لغة سليمة",
+     "كلام سريع",
+     "صوت منخفض",
+     "بلا مقدمة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أستخدم لغة ... المناسبة",
+    "options": [
+     "الجسد",
+     "الصمت",
+     "الغضب",
+     "الإشارة فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "أنهي الحديث بخاتمة:",
+    "options": [
+     "مؤثرة",
+     "مملّة",
+     "طويلة جدًا",
+     "غامضة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "قبل اتخاذ القرار أحدد:",
+    "options": [
+     "هدفي",
+     "عذري",
+     "راحتي",
+     "خوفي"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "من الحروف الهلالية في خط النسخ:",
+    "options": [
+     "الواو",
+     "الألف",
+     "اللام",
+     "الباء"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "القرار المدروس يبني:",
+    "options": [
+     "مستقبلك",
+     "ندمك",
+     "خوفك",
+     "كسلك"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "التسرّع في القرار يجعلك:",
+    "options": [
+     "تندم لاحقًا",
+     "تنجح دائمًا",
+     "تفرح",
+     "تتفوق"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أبدأ الحديث بمقدمة:",
+    "options": [
+     "جذابة",
+     "مملة",
+     "طويلة",
+     "غير واضحة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "لغة الجسد تساعد على إيصال المعنى في أثناء الحديث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الشخص الذي لا يفكر في العواقب يتخذ قرارات صائبة دائمًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "ترتيب الأولويات اليومية من القرارات المهمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ينبغي تحمّل نتائج القرار الذي نتخذه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "التحدث بلغة عامية ضعيفة من إرشادات الحديث الجيد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أستطلع رأي زملائي لأطوّر أدائي في التحدث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ترتيب الفكر ترتيبًا منطقيًّا يساعد على نجاح الحديث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l11",
+  "kind": "الكتابة",
+  "title": "تطبيقات على كتابة نص معلوماتي",
+  "desc": "الكتابة - الدرس الثالث",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "موضوع التطبيق الكتابي في هذا الدرس:",
+    "options": [
+     "خطوات اتخاذ القرار",
+     "المكتبات في بلدي",
+     "الوقت من ذهب",
+     "الرياضة والصحة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كم كلمة يُطلب أن يكون النص المعلوماتي تقريبًا؟",
+    "options": [
+     "120 - 150 كلمة",
+     "20 - 30 كلمة",
+     "500 كلمة",
+     "1000 كلمة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما المقصود بعبارة «القرار المدروس يبني مستقبلك، أما التسرّع فقد يجعلك تندم لاحقًا»؟",
+    "options": [
+     "التفكير قبل القرار يحقق النجاح والتسرع يسبب الندم",
+     "التسرع أفضل من التفكير",
+     "لا فرق بين القرار المدروس والمتسرع",
+     "القرارات لا تؤثر في المستقبل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أي مما يلي من إرشادات كتابة النص المعلوماتي؟",
+    "options": [
+     "وضوح الفكرة الرئيسة وترتيب الفكر",
+     "كتابة قصة خيالية",
+     "استخدام كلمات عامية",
+     "إهمال المصادر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بعد الانتهاء من كتابة النص:",
+    "options": [
+     "أعرضه على زملائي",
+     "أمزقه",
+     "أخفيه",
+     "أنساه"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الجزء الذي يتناول أهمية الموضوع:",
+    "options": [
+     "المقدمة",
+     "الخاتمة",
+     "المصادر",
+     "العنوان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الجزء الذي يلخّص ما كتبت:",
+    "options": [
+     "الخاتمة",
+     "المقدمة",
+     "الموضوع",
+     "المخطط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الجزء الذي يعرض الحقائق:",
+    "options": [
+     "الموضوع",
+     "الخاتمة",
+     "المقدمة",
+     "العنوان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "من مصادر المعلومات:",
+    "options": [
+     "المجلات",
+     "الأحلام",
+     "التخمين",
+     "الإشاعات"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أثناء عرض زميلك أكون:",
+    "options": [
+     "مشجّعًا",
+     "ساخرًا",
+     "غاضبًا",
+     "لا مباليًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أعبّر عن رأيي بأسلوب:",
+    "options": [
+     "لطيف",
+     "قاسٍ",
+     "جارح",
+     "عنيف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أقدّر جهد زميلي في:",
+    "options": [
+     "التحضير",
+     "النوم",
+     "اللعب",
+     "التأخير"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "أستخدم بطاقة ... لتقديم ملاحظاتي",
+    "options": [
+     "الشكر والتقييم",
+     "الدعوة",
+     "التهنئة",
+     "المعايدة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "من بنود بطاقة الشكر والتقييم: طريقة العرض والتواصل البصري.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "أستشهد بمصادر موثوقة وأذكرها في النص المعلوماتي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "قواعد الكتابة السليمة غير مهمة في النص المعلوماتي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أبدأ النص المعلوماتي بمقدمة مشوّقة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "الخاتمة في النص المعلوماتي تعرض معلومات جديدة لم تُذكر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "أفكّر في إضافة نصيحة مفيدة لتحسين عرض زميلي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "ترتيب الفكر يكون برسم مخطط أو قائمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l12",
+  "kind": "النص الشعري",
+  "title": "إلى الشباب",
+  "desc": "الدرس الرابع (النص الشعري)",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M9 18V5l12-2v13\"/><circle cx=\"6\" cy=\"18\" r=\"3\"/><circle cx=\"18\" cy=\"16\" r=\"3\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "إلى من يوجِّه الشاعر دعوته في القصيدة؟",
+    "options": [
+     "أبناء مصر الشباب",
+     "الحكام",
+     "التجار",
+     "المزارعين فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الفكرة الرئيسة التي تدور حولها قصيدة إلى الشباب؟",
+    "options": [
+     "دعوة الشباب للنهوض بالوطن والتعاون من أجل تقدمه",
+     "وصف رحلة سياحية في مصر",
+     "الحديث عن قصة حب",
+     "شرح قواعد نحوية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "من قائل قصيدة «إلى الشباب»؟",
+    "options": [
+     "إبراهيم ناجي",
+     "أحمد شوقي",
+     "حافظ إبراهيم",
+     "أحمد الكناني"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "بمَ يصف الشاعر نهر النيل في القصيدة؟",
+    "options": [
+     "هبة السماء ومنحة الآباد",
+     "نهرًا عاديًا لا قيمة له",
+     "خطرًا على البلاد",
+     "عائقًا أمام التقدم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما مهنة الشاعر إبراهيم ناجي إلى جانب الشعر؟",
+    "options": [
+     "طبيب",
+     "معلم",
+     "مهندس",
+     "محامٍ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ممَّ يحذِّر الشاعر أبناء مصر في القصيدة؟",
+    "options": [
+     "أطماع الغرباء وحقد الحاسدين",
+     "الاجتهاد في العمل",
+     "طلب العلم",
+     "التعاون فيما بينهم"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ما الرابط الفكري بين وصف النيل بـ«هبة السماء» ودعوة الشاعر للعمل؟",
+    "options": [
+     "تذكير بأن نعمة النيل تستوجب شكرها بالعمل والحفاظ عليها لا إهدارها",
+     "لا رابط بين الفكرتين",
+     "وصف النيل يتعارض مع دعوة العمل",
+     "الهبة تعني عدم الحاجة للعمل"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ما معنى كلمة «الآباد»؟",
+    "options": [
+     "مدى الدهر",
+     "يوم واحد",
+     "ساعة واحدة",
+     "أسبوع واحد"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ما معنى كلمة «حُرقة»؟",
+    "options": [
+     "شدة الغيظ والحزن",
+     "الفرح الشديد",
+     "الهدوء التام",
+     "النوم العميق"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ما معنى كلمة «يَبْغي» في القصيدة؟",
+    "options": [
+     "يطلُب",
+     "يترُك",
+     "يكرَه",
+     "يخاف"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ما معنى كلمة «تآلُفًا»؟",
+    "options": [
+     "مودّة ومحبّة",
+     "كراهية",
+     "خصامًا",
+     "بُعدًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "ما معنى كلمة «مِداد»؟",
+    "options": [
+     "ما يُكتب به كالحِبر",
+     "الورق",
+     "القلم",
+     "الكتاب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "معنى «السبيل»:",
+    "options": [
+     "الطريق",
+     "البيت",
+     "المال",
+     "الزمان"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«جهاد / عتاد / آباد» يجمعها:",
+    "options": [
+     "تماثل النهاية",
+     "التضاد",
+     "الترادف",
+     "أنها أفعال"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "«أبناء الوطن كالجسد الواحد» أسلوب:",
+    "options": [
+     "تشبيه",
+     "استفهام",
+     "نداء",
+     "أمر"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "وُلد الشاعر إبراهيم ناجي في مدينة الإسكندرية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "يرى الشاعر أن الطريق إلى النجاح يكون بالتعاون ونشر المحبة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كلمة «هِبة» و«مِنحة» بينهما علاقة ترادف في جماليات النص.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "القصيدة تدعو الشباب إلى التخاذل والانعزال.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "وصف الشاعر ديار مصر بأنها طمع الغريب وحرقة الحساد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "u1l13",
+  "kind": "عودة للقراءة مع الأسرة",
+  "title": "مسرحية «فكّر قبل أن تفعل» - المشهد الأول",
+  "desc": "المشهد الأول: كلمات من ذهب",
+  "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+  "questions": [
+   {
+    "type": "mcq",
+    "q": "ما عنوان المشهد الأول من مسرحية «فكّر قبل أن تفعل»؟",
+    "options": [
+     "كلمات من ذهب",
+     "الحكمة الغالية",
+     "الملك والسوق",
+     "اللوحة القديمة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "أين تدور أحداث المشهد الأول؟",
+    "options": [
+     "في سوق في الزمن الماضي البعيد",
+     "في قصر الملك",
+     "في مدرسة",
+     "في حديقة عامة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كيف دخل الملك السوق؟",
+    "options": [
+     "متخفّيًا في هيئة تاجر غريب",
+     "في موكب كبير",
+     "راكبًا حصانه أمام الناس",
+     "مع جنوده"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "لماذا أصرّ الملك على زيارة السوق بنفسه؟",
+    "options": [
+     "لأن الناس أحيانًا لا يخبرونه بالحقيقة كلها",
+     "ليشتري ملابس جديدة",
+     "ليبيع بضاعته",
+     "ليقابل صديقًا قديمًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا قال العجوز إنه يبيع؟",
+    "options": [
+     "أثمن بضائع السوق: الحكمة",
+     "الذهب والفضة",
+     "الملابس الفاخرة",
+     "الطعام والشراب"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "كم طلب العجوز ثمنًا للّوحة؟",
+    "options": [
+     "عشرة آلاف دينار",
+     "ألف دينار",
+     "مئة دينار",
+     "دينارًا واحدًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "mcq",
+    "q": "ماذا كُتب على اللوحة القديمة؟",
+    "options": [
+     "فكّر قبل أن تفعل",
+     "الوقت من ذهب",
+     "اصنع قرارك",
+     "العلم نور"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "من رافق الملك في السوق؟",
+    "options": [
+     "الوزير والحاجب",
+     "الجنود",
+     "التجار",
+     "أبناؤه"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "صاحب الدكان كان:",
+    "options": [
+     "رجلًا عجوزًا",
+     "شابًا صغيرًا",
+     "تاجرًا غنيًّا",
+     "طفلًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "الدكان كان يبدو:",
+    "options": [
+     "مهجورًا تقريبًا",
+     "مزدحمًا",
+     "جديدًا",
+     "ملوّنًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "bubbles",
+    "q": "كان العجوز يجلس على:",
+    "options": [
+     "كرسي خشبي",
+     "سجادة",
+     "عرش",
+     "صخرة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "كيف كان العجوز ينظر إلى الملك؟",
+    "options": [
+     "بابتسامة واثقة",
+     "بغضب",
+     "بخوف",
+     "بحزن"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "ماذا قال الحاجب عن ثمن اللوحة؟",
+    "options": [
+     "هذا جنون!",
+     "ثمن رخيص",
+     "ثمن مناسب",
+     "هدية مجانية"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "ماذا فعل الملك في النهاية؟",
+    "options": [
+     "دفع المبلغ وأخذ اللوحة",
+     "رفض الشراء",
+     "عاقب العجوز",
+     "ترك السوق غاضبًا"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "shooting",
+    "q": "كان العجوز متكئًا على:",
+    "options": [
+     "عصاه",
+     "الحائط",
+     "الوزير",
+     "الطاولة"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كان الملك يراقب السوق بعناية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "كانت اللوحة جديدة ولامعة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "type": "true_false",
+    "q": "نفض الملك الغبار عن اللوحة ليقرأ ما فيها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "قال الملك للعجوز: «يبدو أنك تعرف قيمتها».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "type": "true_false",
+    "q": "رفض الوزير والحاجب الفكرة ووافقا على الثمن فورًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let animIntervals = [];
+    let wrongAnswers = [];
+    const TYPE_NAMES = { mcq: "اختيار من متعدد", bubbles: "الفقاعات المتساقطة", shooting: "التنشين والاصطياد", true_false: "صح أم خطأ" };
+
+    function stopAnimations() {
+        clearInterval(animInterval);
+        animIntervals.forEach(clearInterval);
+        animIntervals = [];
+    }
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach((game, i) => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <span class="num">${i + 1}</span>
+                <div class="icon-container">${game.icon}</div>
+                <span class="kind-badge">${game.kind}</span>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="count">🎯 ${game.questions.length} سؤالًا متنوعًا</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        stopAnimations();
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة لقائمة الدروس</button>
+            </div>
+        `;
+
+        window.lastScore = score;
+        window.lastTotal = currentQuestions.length;
+        window.lastGameTitle = (currentGame && currentGame.title) ? currentGame.title : '';
+    }
+
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]);
+        qIndex = 0;
+        wrongAnswers = [];
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        window.scrollTo(0, 0);
+        renderNextState();
+    }
+
+    function renderNextState() {
+        stopAnimations();
+        if (qIndex >= currentQuestions.length) { gameComplete(); return; }
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+        const type = currentQuestions[qIndex].type || currentGame.type;
+        const tag = document.createElement('div');
+        tag.className = 'q-type-tag';
+        tag.innerText = TYPE_NAMES[type] || '';
+        gc.appendChild(tag);
+        if (type === 'mcq') renderMCQ(gc);
+        else if (type === 'bubbles') renderBubbles(gc);
+        else if (type === 'shooting') renderShooting(gc);
+        else renderTrueFalse(gc);
+    }
+
+    // --- أنماط الألعاب ---
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.42 + Math.random() * 0.42; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        stopAnimations();
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+        container.appendChild(qBox);
+        container.appendChild(area);
+        let isAnswered = false;
+        const areaW = () => area.clientWidth || window.innerWidth;
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            bird.style.top = (8 + index * 23) + '%';
+            let pos = (index % 2 === 0) ? -200 : areaW();
+            let speed = (Math.random() * 1.2 + 1.2) * ((index % 2 === 0) ? 1 : -1);
+            bird.style.left = pos + 'px';
+            bird.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                stopAnimations();
+                bird.style.color = 'white';
+                bird.style.borderColor = 'white';
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            area.appendChild(bird);
+            animIntervals.push(setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                const w = areaW();
+                if (pos > w + 50) pos = -bird.offsetWidth - 20;
+                if (pos < -bird.offsetWidth - 60) pos = w + 20;
+                bird.style.left = pos + 'px';
+            }, 20));
+        });
+        const hint = document.createElement('div');
+        hint.style.cssText = 'text-align:center;margin-top:15px;color:var(--primary);font-weight:bold;font-size:1.1rem;';
+        hint.innerHTML = '🎯 اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!';
+        container.appendChild(hint);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>
